@@ -83,6 +83,43 @@ export class AppComponent implements AfterViewInit {
                 Triggered: ['Cuando otro Monstruo Animal del oponente se activa, el quivern cola de daga le lanza su aliento de fuego.'],
                 Global: []
             }
+        },
+        {
+            name: 'Aylánido',
+            name_id: 'aylanido',
+            rarity: 'rare',
+            spaces: 1,
+            attack_value: 0,
+            synergies: ['Pequeño', 'Acuático', 'Arbóreo', 'Humanoide'],
+            type: 'Monster',
+            effects: {
+                Actions: [],
+                Constants: ['Si el efecto de una carta le hace objetivo, contrarresta dicho efecto y transforma la carta en un Aylánido.'],
+                Triggered: [
+                    'El Aylánido obtiene 50 puntos de valor de ataque por cada Aylánido en juego.',
+                    'Si durante la etapa del Aylánido, este no tiene al menos una carta adyacente con la sinergia Acuático, transforma El Aylánido en un Aylánido marchito.',
+                    'Si la etapa de este Aylánido ya ocurrió y convirtió al menos una carta en un Aylánido, su etapa se jugará una vez más al final de la etapa actual.'
+                ],
+                Global: []
+            }
+        },
+        {
+            name: 'Obsidian',
+            name_id: 'obsidian',
+            rarity: 'rare',
+            spaces: 2,
+            attack_value: 0,
+            synergies: ['Grande', 'Forjado', 'Humanoide', 'Ígneo'],
+            type: 'Monster',
+            effects: {
+                Actions: ['Si hay espacio en tu tablero, lo llena con Obsidians jóvenes. Si no, Erupciona de ira y reduce a la mitad el valor de ataque de todos los monstruos de tu oponente.'],
+                Constants: [],
+                Triggered: [
+                    'Cuando un Obsidian joven entra al tablero, el Obsidian te otorga 50 puntos de escudo.',
+                    'Cuando un Obsidian joven abandona el tablero, el Obsidian hace daño igual a tus puntos de escudo a tu oponente. '
+                ],
+                Global: []
+            }
         }
     ];
 
@@ -140,6 +177,13 @@ export class AppComponent implements AfterViewInit {
 
         const cardData = this.cards.find(c => c.name_id === cardName);
         if (!cardData) return;
+
+        // 📌 Desplaza la carta al centro antes de mostrar el tooltip
+        card.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center"
+        });
 
         const dialog = document.createElement('div');
         dialog.classList.add('hover-dialog', 'hover-dialog-hidden', 'borde_fancy');
