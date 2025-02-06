@@ -1,0 +1,229 @@
+:host
+    display: flex
+    flex-flow: row wrap
+
+    justify-content: center
+    align-items: center
+    align-content: center
+    
+    .card
+        position: relative
+
+        height: 500px
+
+        border-radius: 15px
+
+        box-shadow: 2px 2px 4px rgba(41, 41, 41, 0.4), -1px -1px 4px rgba(41, 41, 41, 0.4)
+
+        overflow: hidden
+
+        padding: 7px
+        margin: 4px
+
+        .card-body
+            position: relative
+
+            height: 100%
+
+            border-radius: 10px
+
+            overflow: hidden
+
+            .card-title
+                position: absolute
+                top: 1%
+                left: 3%
+                right: 3%
+
+                height: 5%
+
+                font-family: 'Caveat', cursive
+                font-weight: bolder
+                color: white
+                text-align: center
+                text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black
+
+                background-color: rgba(63, 63, 63, 0.4)
+
+                border: 1px solid rgba(0, 0, 0, 0.4)
+                border-radius: 25px / 50px
+                
+                p
+                    transition: 0.4s ease-in-out
+                    
+                    z-index: 2
+
+                    padding: 0
+                    margin: 0
+
+            .attack_value
+                position: absolute
+                bottom: -102%
+                right: -102%
+
+        &:hover
+            .card-body .card-title 
+                background-color: rgba(0, 0, 0, 0)
+
+                border: none
+
+                p
+                    position: relative
+                    
+                    text-shadow: 0 1px 2px red, 1px 0 2px red, -1px 0 2px black, 0 -1px 2px black, 0 7px 8px rgba(0, 0, 0, .8), -3px 0 8px rgba(0, 0, 0, .8)
+                    font-size: 40px
+
+        .border
+            position: absolute
+            top: -10px
+            left: -10px
+            right: -10px
+            bottom: -10px
+            
+            background-position: center
+            background-color: rgba(0, 0, 0, 0)
+
+            pointer-events: none
+            z-index: 1
+
+.card-small
+    aspect-ratio: 3/7
+
+    .border
+        background-size: 100% 101%
+
+    &.common .border
+        background-image: url("../assets/media/img/borders/bordePCommon.png")
+
+    &.infrequent .border
+        background-image: url("../assets/media/img/borders/bordePInfrequent.png")
+
+    &.rare .border
+        background-image: url("../assets/media/img/borders/bordePRare.png")
+
+    &.mithic .border
+        background-image: url("../assets/media/img/borders/bordePMithic.png")
+
+    &.legendary .border
+        background-image: url("../assets/media/img/borders/bordePLegendary.png")
+
+    &.unique .border
+        background-image: url("../assets/media/img/borders/bordePUnique.png")
+
+.card-medium
+    aspect-ratio: 6/7
+    
+    .border
+        background-size: 111% 102%
+
+    &.common .border
+        background-image: url("../assets/media/img/borders/bordeMCommon.png")
+
+    &.infrequent .border
+        background-image: url("../assets/media/img/borders/bordeMInfrequent.png")
+
+    &.rare .border
+        background-image: url("../assets/media/img/borders/bordeMRare.png")
+
+    &.mithic .border
+        background-image: url("../assets/media/img/borders/bordeMMithic.png")
+
+    &.legendary .border
+        background-image: url("../assets/media/img/borders/bordeMLegendary.png")
+
+    &.unique .border
+        background-image: url("../assets/media/img/borders/bordeMUnique.png")
+
+.card-large
+    aspect-ratio: 9/7
+    
+    .border
+        background-size: 114% 101%
+
+    &.common .border
+        background-image: url("../assets/media/img/borders/bordeGCommon.png")
+
+    &.infrequent .border
+        background-image: url("../assets/media/img/borders/bordeGInfrequent.png")
+
+    &.rare .border
+        background-image: url("../assets/media/img/borders/bordeGRare.png")
+
+    &.mithic .border
+        background-image: url("../assets/media/img/borders/bordeGMithic.png")
+
+    &.legendary .border
+        background-image: url("../assets/media/img/borders/bordeGLegendary.png")
+
+    &.unique .border
+        background-image: url("../assets/media/img/borders/bordeGUnique.png")
+
+#Aprola
+    background-image: url("../assets/media/img/aprola.png")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+            
+    &:hover
+        background-size: 110% 110%
+
+#Plor
+    background-image: url("../assets/media/img/plor2.jpg")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+            
+    &:hover
+        background-size: 110% 110%
+
+#Dragon_negro
+    background-image: url("../assets/media/img/dragon_negro.webp")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+            
+    &:hover
+        background-size: 110% 110%
+
+#Obsidian
+    background-image: url("../assets/media/img/obsidian.webp")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+ 
+    &:hover
+        background-size: 110% 110%
+
+#Quivern_daga
+    background-image: url("../assets/media/img/quivern_daga.webp")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+
+    &:hover
+        background-size: 110% 110%
+
+#Lirvatha
+    background-image: url("../assets/media/img/lirvatha.webp")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+
+    &:hover
+        background-size: 110% 110%
+
+#Aylanido
+    background-image: url("../assets/media/img/aylanido.webp")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+
+    &:hover
+        background-size: 110% 110%
