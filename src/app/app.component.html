@@ -1,13 +1,18 @@
 @for (card of cards; track card.name) {
     <div class="card {{card.rarity}}" 
     [ngClass]="card.spaces === 1 ? 'card-small' : card.spaces === 1 ? 'card-medium' : 'card-large'" 
-    #cardElement [attr.data-name]="card.name">
+    #cardElement [attr.data-name]="card.name_id">
         <div class="border"></div>
-        <div id="{{card.name}}" class="card-body {{card.synergies.join(' ')}}">
+        <div id="{{card.name_id}}" class="card-body {{card.synergies.join(' ')}}">
             <div class="card-title">
                 <p>{{card.name}}</p>
             </div>
-            <div class="attack_value">{{card.attack_value}}</div>
+            <div *ngIf="card.attack_value > 0" 
+                class="attack_value"
+                matTooltip="Valor de ataque">
+                {{card.attack_value}}
+            </div>
         </div>
     </div>
 }
+<img class="rules" src="favicon.png" alt="" (click)="openDialog()">

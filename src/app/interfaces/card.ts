@@ -1,5 +1,6 @@
 export interface Card {
     name: string;
+    name_id: string;
     rarity: string;
     spaces: number;
     attack_value: number;

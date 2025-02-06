@@ -1,24 +1,28 @@
 import { Component, ElementRef, QueryList, Renderer2, ViewChildren, AfterViewInit } from '@angular/core';
 import { Card } from './interfaces/card';
 import { CommonModule } from '@angular/common';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { RulesComponent } from './components/rules/rules.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, MatTooltipModule, MatDialogModule],
     templateUrl: './app.component.html',
-    styleUrl: './app.component.sass'
+    styleUrl: './app.component.sass',
 })
 export class AppComponent implements AfterViewInit {
     title = 'Zoogenesis';
 
     @ViewChildren('cardElement') cardElements!: QueryList<ElementRef>; // Referencias a las cartas
 
-    constructor(private renderer: Renderer2) { }
+    constructor(private renderer: Renderer2, private dialog: MatDialog) { }
 
     cards: Card[] = [
         {
             name: 'Aprola',
+            name_id: 'aprola',
             rarity: 'common',
             spaces: 1,
             attack_value: 10,
@@ -37,6 +41,7 @@ export class AppComponent implements AfterViewInit {
         },
         {
             name: 'Plor',
+            name_id: 'plor',
             rarity: 'common',
             spaces: 1,
             attack_value: 0,
@@ -46,6 +51,36 @@ export class AppComponent implements AfterViewInit {
                 Actions: [],
                 Constants: ['Atrae un monstruo Inteligente y Pequeño de tu oponente. El plor se destruye y obtienes el control del monstruo por el resto de la ronda. '],
                 Triggered: [],
+                Global: []
+            }
+        },
+        {
+            name: 'Lirvatha',
+            name_id: 'lirvatha',
+            rarity: 'infrequent',
+            spaces: 3,
+            attack_value: 0,
+            synergies: ['Colosal', 'aberración', 'Arbóreo'],
+            type: 'Monster',
+            effects: {
+                Actions: ['Duplica el daño del monstruo a la derecha si es arbóreo.'],
+                Constants: [],
+                Triggered: ['Cuando se activa la acción de la Lirvatha, destruye al monstruo de tu oponente. No afecta a Monstruos con al menos una de las siguientes sinergias: Colosal, Ígneo.'],
+                Global: []
+            }
+        },
+        {
+            name: 'Quivern cola de daga',
+            name_id: 'quivern_daga',
+            rarity: 'infrequent',
+            spaces: 1,
+            attack_value: 100,
+            synergies: ['Pequeño', 'Dragonil', 'Ígneo'],
+            type: 'Monster',
+            effects: {
+                Actions: [],
+                Constants: [],
+                Triggered: ['Cuando otro Monstruo Animal del oponente se activa, el quivern cola de daga le lanza su aliento de fuego.'],
                 Global: []
             }
         }
@@ -99,31 +134,31 @@ export class AppComponent implements AfterViewInit {
     // 📌 Mostrar tooltip
     private showTooltip(card: HTMLElement) {
         this.hideTooltip(card);
-    
+
         const cardName = card.getAttribute('data-name');
         if (!cardName) return;
-    
-        const cardData = this.cards.find(c => c.name === cardName);
+
+        const cardData = this.cards.find(c => c.name_id === cardName);
         if (!cardData) return;
-    
+
         const dialog = document.createElement('div');
         dialog.classList.add('hover-dialog', 'hover-dialog-hidden', 'borde_fancy');
-    
+
         let textoAcciones = cardData.effects.Actions.length === 0 ? '' : `
             <h2>Acción</h2>
             <div>${cardData.effects.Actions.map(a => `<p>${a}</p>`).join('')}</div>
         `;
-    
+
         let textoConstantes = cardData.effects.Constants.length === 0 ? '' : `
             <h2>Efectos constantes</h2>
             <div>${cardData.effects.Constants.map(c => `<p>${c}</p>`).join('')}</div>
         `;
-    
+
         let textoDesencadenadas = cardData.effects.Triggered.length === 0 ? '' : `
             <h2>Efectos desencadenados</h2>
             <div>${cardData.effects.Triggered.map(t => `<p>${t}</p>`).join('')}</div>
         `;
-    
+
         let textoGlobales = cardData.effects.Global.length === 0 ? '' : `
             <h2>Efectos globales</h2>
             <div>${cardData.effects.Global.map(g => `<p>${g}</p>`).join('')}</div>
@@ -137,13 +172,13 @@ export class AppComponent implements AfterViewInit {
                 ${textoGlobales}
             </div>
         `;
-    
+
         dialog.innerHTML = contentHtml;
         document.body.appendChild(dialog);
-    
+
         const rect = card.getBoundingClientRect();
         const espacioDerecha = window.innerWidth - rect.right;
-    
+
         if (espacioDerecha >= 250) {
             dialog.style.top = `${window.scrollY + rect.top + 50}px`;
             dialog.style.left = `${window.scrollX + rect.right + 20}px`;
@@ -151,12 +186,12 @@ export class AppComponent implements AfterViewInit {
             dialog.style.top = `${window.scrollY + rect.top}px`;
             dialog.style.left = `${window.scrollX + rect.left - 250}px`;
         }
-    
+
         requestAnimationFrame(() => dialog.classList.remove('hover-dialog-hidden'));
-    
+
         (card as any)._hoverDialog = dialog;
     }
-    
+
 
     private hideTooltip(card: HTMLElement) {
         const dialog = (card as any)._hoverDialog;
@@ -167,5 +202,15 @@ export class AppComponent implements AfterViewInit {
                 (card as any)._hoverDialog = null;
             });
         }
+    }
+
+    openDialog() {
+        this.dialog.open(RulesComponent, {
+            width: '80%',
+            height: '80vh',
+            maxWidth: 'none',
+            hasBackdrop: true,
+            data: { message: "Este es el diálogo que abriste con el favicon" }
+        });
     }
 }
