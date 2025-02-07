@@ -28,7 +28,7 @@
         &:hover            
             transform: scale(.9)
 
-    .leyend
+    .legend
         position: absolute
         top: 11%
         left: 2%
@@ -46,20 +46,20 @@
 
         padding: 10px
 
-        &:hover+.leyend_panel
+        &:hover+.legend_panel
             display: grid
-            grid-template: auto / 25px 1fr
+            grid-template: auto / 1fr 1fr 1fr
             justify-content: center
             align-items: center
 
-    .leyend_panel
+    .legend_panel
         position: absolute
         top: 10%
         left: 1.5%
 
         display: none
 
-        max-width: 500px
+        max-width: 96.5%
 
         color: white
         font-family: 'Caveat', cursive
@@ -76,16 +76,18 @@
 
         &:hover
             display: grid
-            grid-template: auto / 25px 1fr
+            grid-template: auto / 1fr 1fr 1fr
             justify-content: center
             align-items: center
 
-        h1, h3
-            grid-column: span 2
-            
+        h1, h3            
             text-align: center
 
         h3
+            align-self: flex-start
+
+            border-bottom: 3px solid rgba(100, 38, 38, 0.6)
+
             margin: 0
 
         img
@@ -94,7 +96,24 @@
         p
             font-size: 22px
 
-            margin: 10px 0 0 15px
+            margin: 8px 0 0 15px
+
+        .layout
+            display: grid
+            grid-template: auto / 25px 1fr
+            justify-content: center
+            align-items: center
+
+            height: 100%
+
+            padding: 10px
+
+        .layout_extended
+            grid-template: auto / 25px 1fr 25px 1fr 25px 1fr
+
+            p
+                margin-right: 40px
+
     
     .card
         position: relative

@@ -49,7 +49,37 @@ export class AppComponent implements AfterViewInit {
             type: 'Tool',
             effects: {
                 Actions: [],
-                Constants: ['Atrae un monstruo Inteligente y Pequeño de tu oponente. El plor se destruye y obtienes el control del monstruo por el resto de la ronda. '],
+                Constants: ['Atrae un monstruo Inteligente y <img src="/icons/pequeño.png" alt="Ícono de Pequeño"> de tu oponente. El plor se destruye y obtienes el control del monstruo por el resto de la ronda. '],
+                Triggered: [],
+                Global: []
+            }
+        },
+        {
+            name: 'Nimroot',
+            name_id: 'nimroot',
+            rarity: 'infrequent',
+            spaces: 1,
+            attack_value: 0,
+            synergies: ['Pequeño', 'Animal', 'Subterráneo'],
+            type: 'Monster',
+            effects: {
+                Actions: ['Asalta al monstruo activo del oponente y lo envenena impidiendo que actúe este turno e impidiendo que sus efectos se activen por la duración del veneno.'],
+                Constants: ['Si un efecto de tu oponente le hace objetivo, el Nimroot se oculta bajo tierra y reaparece al final de la etapa en una posición aleatoria del tablero, cuya etapa aún no haya pasado.'],
+                Triggered: [],
+                Global: []
+            }
+        },
+        {
+            name: 'Nÿlmaekrûl',
+            name_id: 'nylmaekrul',
+            rarity: 'infrequent',
+            spaces: 2,
+            attack_value: 50,
+            synergies: ['Grande', 'Acutático'],
+            type: 'Monster',
+            effects: {
+                Actions: [],
+                Constants: ['El Nÿlmaekrûl obtiene 50 <img src="/icons/ataque_estupido.png" alt="Ícono de ataque"> por cada monstruo acuático en tu tablero.'],
                 Triggered: [],
                 Global: []
             }
@@ -60,7 +90,7 @@ export class AppComponent implements AfterViewInit {
             rarity: 'infrequent',
             spaces: 3,
             attack_value: 0,
-            synergies: ['Colosal', 'aberración', 'Arbóreo'],
+            synergies: ['Colosal', 'Aberración', 'Arbóreo'],
             type: 'Monster',
             effects: {
                 Actions: ['Duplica el <img src="/icons/ataque_estupido.png" alt="Ícono de ataque"> del monstruo a la derecha si es arbóreo.'],
@@ -70,7 +100,7 @@ export class AppComponent implements AfterViewInit {
             }
         },
         {
-            name: 'Quivern cola de daga',
+            name: 'Quivern cola daga',
             name_id: 'quivern_daga',
             rarity: 'infrequent',
             spaces: 1,
@@ -80,7 +110,37 @@ export class AppComponent implements AfterViewInit {
             effects: {
                 Actions: [],
                 Constants: [],
-                Triggered: ['Cuando otro Monstruo Animal del oponente se activa, el quivern cola de daga le lanza su aliento de fuego.'],
+                Triggered: ['Cuando otro Monstruo Animal del oponente se activa, el quivern cola de daga le lanza su aliento de <img src="/icons/igneo.png" alt="Ícono de sinergia Ígneo">.'],
+                Global: []
+            }
+        },
+        {
+            name: 'Quivern cola púas',
+            name_id: 'quivern_puas',
+            rarity: 'infrequent',
+            spaces: 1,
+            attack_value: 100,
+            synergies: ['Pequeño', 'Dragonil', 'Gélido'],
+            type: 'Monster',
+            effects: {
+                Actions: [],
+                Constants: [],
+                Triggered: ['Cuando otro Monstruo Animal del oponente se activa, el quivern cola de daga le lanza su aliento de <img src="/icons/gelido.png" alt="Ícono de sinergia Gélido">.'],
+                Global: []
+            }
+        },
+        {
+            name: 'Quivern cola martillo',
+            name_id: 'quivern_martillo',
+            rarity: 'infrequent',
+            spaces: 1,
+            attack_value: 100,
+            synergies: ['Pequeño', 'Dragonil', 'Corrosivo'],
+            type: 'Monster',
+            effects: {
+                Actions: [],
+                Constants: [],
+                Triggered: ['Cuando otro Monstruo Animal del oponente se activa, el quivern cola de daga le lanza su aliento de <img src="/icons/corrosivo.png" alt="Ícono de sinergia Corrosivo">.'],
                 Global: []
             }
         },
