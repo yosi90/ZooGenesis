@@ -2,7 +2,7 @@
     display: flex
     flex-flow: row wrap
 
-    justify-content: center
+    justify-content: flex-start
     align-items: center
     align-content: center
 
@@ -27,6 +27,74 @@
 
         &:hover            
             transform: scale(.9)
+
+    .leyend
+        position: absolute
+        top: 11%
+        left: 2%
+
+        background-color: rgba(0, 0, 0, .4)
+        border: 4px solid rgba(0, 0, 0, 0.6)
+        border-radius: 50%
+        box-shadow: 2px 0px rgb(22, 22, 22), 0px 2px rgb(22, 22, 22), 2px 2px rgb(22, 22, 22)
+        
+        width: 60px
+
+        cursor: pointer
+        aspect-ratio: 1/1
+        z-index: 3
+
+        padding: 10px
+
+        &:hover+.leyend_panel
+            display: grid
+            grid-template: auto / 25px 1fr
+            justify-content: center
+            align-items: center
+
+    .leyend_panel
+        position: absolute
+        top: 10%
+        left: 1.5%
+
+        display: none
+
+        max-width: 500px
+
+        color: white
+        font-family: 'Caveat', cursive
+        text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black
+
+        background-color: rgb(34, 34, 34)
+        border: 4px solid rgba(87, 5, 5, 0.6)
+        border-radius: 10px
+        box-shadow: 2px 0px 4px rgb(22, 22, 22), 0px 2px 4px rgb(22, 22, 22), 2px 2px 6px rgb(22, 22, 22)
+
+        z-index: 2
+
+        padding: 5px 20px
+
+        &:hover
+            display: grid
+            grid-template: auto / 25px 1fr
+            justify-content: center
+            align-items: center
+
+        h1, h3
+            grid-column: span 2
+            
+            text-align: center
+
+        h3
+            margin: 0
+
+        img
+            width: 30px
+
+        p
+            font-size: 22px
+
+            margin: 10px 0 0 15px
     
     .card
         position: relative
@@ -83,17 +151,32 @@
                 bottom: 10px
                 right: 10px
 
+                display: flex
+                justify-content: center
+                align-items: center
+
                 min-width: 10px
 
                 font-size: 20px
+                font-weight: bold
+                text-shadow: 0 1px 2px white, 1px 0 2px white, -1px 0 2px white, 0 -1px 2px white, 0 7px 8px rgba(255, 255, 255, 0.8), -3px 0 8px rgba(255, 255, 255, 0.8)
 
-                background-color: rgb(135, 76, 76)
+                background: url('../assets/media/img/rock_pattern.jpg')
+                background-size: 100% auto
+                background-color: rgb(165, 165, 165)
                 border: 3px solid rgb(84, 44, 44)
                 border-radius: 25px / 50px
 
                 z-index: 2
 
+                gap: 5px
                 padding: 2px 6px
+
+                img 
+                    width: 20px
+
+                p
+                    margin: 0
 
         &:hover
             .card-body .card-title 
@@ -214,6 +297,16 @@
 
 #dragon_negro
     background-image: url("../assets/media/img/dragon_negro.webp")
+    background-size: 100% 100%
+    background-position: center
+
+    transition: .4s
+            
+    &:hover
+        background-size: 110% 110%
+
+#dragon_verde
+    background-image: url("../assets/media/img/dragon_verde.jpg")
     background-size: 100% 100%
     background-position: center
 

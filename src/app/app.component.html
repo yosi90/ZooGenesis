@@ -1,6 +1,6 @@
 @for (card of cards; track card.name) {
     <div class="card {{card.rarity}}" 
-    [ngClass]="card.spaces === 1 ? 'card-small' : card.spaces === 1 ? 'card-medium' : 'card-large'" 
+    [ngClass]="card.spaces === 1 ? 'card-small' : card.spaces === 2 ? 'card-medium' : 'card-large'" 
     #cardElement [attr.data-name]="card.name_id">
         <div class="border"></div>
         <div id="{{card.name_id}}" class="card-body {{card.synergies.join(' ')}}">
@@ -10,9 +10,32 @@
             <div *ngIf="card.attack_value > 0" 
                 class="attack_value"
                 matTooltip="Valor de ataque">
-                {{card.attack_value}}
+                <img [attr.src]="getAttackIcon(card)" alt="Ícono de ataque">
+                <p>{{card.attack_value}}</p>
             </div>
         </div>
     </div>
 }
-<img class="rules" src="favicon.png" alt="" (click)="openDialog()">
+<img class="rules" src="favicon.png" matTooltip="Reglas del juego" alt="" (click)="openDialog()">
+<img class="leyend" src="icons/leyenda_iconos.png" matTooltip="Leyenda de iconos" matTooltipPosition="above" alt="">
+<div class="leyend_panel">
+    <h1>Leyenda de iconos</h1>
+    <h3>Iconos de efecto:</h3>
+    <img src="/icons/accion.png">
+    <p>Efectos de Acción. Ocurren cuando se activa la carta</p>
+    <img src="/icons/constante.png">
+    <p>Efectos constantes. Se activan tras la etapa de globales y permanecen activos hasta el final de la ronda.</p>
+    <img src="/icons/desencadenado.png">
+    <p>Efectos desencadenados. Se activan ante determinados estímulos, obteniendo prioridad total en el proceso.</p>
+    <img src="/icons/global.png">
+    <p>Efectos globales. Afectan por igual a los dos tableros. Se activan al comienzo de la ronda y permancen activos hasta su final.</p>
+    <h3>Iconos de Estadística</h3>
+    <img src="/icons/ataque_estupido.png">
+    <p>Valor de ataque de un monstruo sin inteligencia</p>
+    <img src="/icons/ataque_inteligente.png">
+    <p>Valor de ataque de un monstruo inteligente</p>
+    <img src="/icons/escudo.png">
+    <p>Valor de escudo del jugador</p>
+    <img src="/icons/curacion.png">
+    <p>Valor de curación</p>
+</div>

@@ -29,7 +29,7 @@ export class AppComponent implements AfterViewInit {
             synergies: ['Pequeño', 'Animal', 'Volador'],
             type: 'Monster',
             effects: {
-                Actions: ['Si tu tablero tiene exactamente 10 cartas de aprola, hay un 1% de probabilidades de que esta carta aumente en 989 su valor de ataque al ser activada.'],
+                Actions: ['Si tu tablero tiene exactamente 10 cartas de aprola, hay un 1% de probabilidades de que esta carta aumente en 989 su <img src="/icons/ataque_estupido.png" alt="Ícono de ataque"> al ser activada.'],
                 Constants: [
                     'Esta carta no puede ser intercambiada.',
                     'La calidad de esta carta no puede aumentar.',
@@ -63,7 +63,7 @@ export class AppComponent implements AfterViewInit {
             synergies: ['Colosal', 'aberración', 'Arbóreo'],
             type: 'Monster',
             effects: {
-                Actions: ['Duplica el daño del monstruo a la derecha si es arbóreo.'],
+                Actions: ['Duplica el <img src="/icons/ataque_estupido.png" alt="Ícono de ataque"> del monstruo a la derecha si es arbóreo.'],
                 Constants: [],
                 Triggered: ['Cuando se activa la acción de la Lirvatha, destruye al monstruo de tu oponente. No afecta a Monstruos con al menos una de las siguientes sinergias: Colosal, Ígneo.'],
                 Global: []
@@ -85,20 +85,19 @@ export class AppComponent implements AfterViewInit {
             }
         },
         {
-            name: 'Aylánido',
+            name: 'Bosque de aylánidos',
             name_id: 'aylanido',
             rarity: 'rare',
-            spaces: 1,
+            spaces: 3,
             attack_value: 0,
-            synergies: ['Pequeño', 'Acuático', 'Arbóreo', 'Humanoide'],
+            synergies: ['Colosal', 'Acuático', 'Arbóreo', 'Humanoide', 'Inteligente'],
             type: 'Monster',
             effects: {
-                Actions: [],
+                Actions: ['Asalta al monstruo activo del oponente y lo convierte en Aylánido.'],
                 Constants: ['Si el efecto de una carta le hace objetivo, contrarresta dicho efecto y transforma la carta en un Aylánido.'],
                 Triggered: [
-                    'El Aylánido obtiene 50 puntos de valor de ataque por cada Aylánido en juego.',
-                    'Si durante la etapa del Aylánido, este no tiene al menos una carta adyacente con la sinergia Acuático, transforma El Aylánido en un Aylánido marchito.',
-                    'Si la etapa de este Aylánido ya ocurrió y convirtió al menos una carta en un Aylánido, su etapa se jugará una vez más al final de la etapa actual.'
+                    'El Bosque de aylánidos obtiene 50 <img src="/icons/ataque_estupido.png" alt="Ícono de ataque"> por cada Aylánido en juego.',
+                    'El bosque de aylánidos cuenta como tres cartas de Aylánido a la hora del recuento de Aylánidos en juego.'
                 ],
                 Global: []
             }
@@ -115,8 +114,43 @@ export class AppComponent implements AfterViewInit {
                 Actions: ['Si hay espacio en tu tablero, lo llena con Obsidians jóvenes. Si no, Erupciona de ira y reduce a la mitad el valor de ataque de todos los monstruos de tu oponente.'],
                 Constants: [],
                 Triggered: [
-                    'Cuando un Obsidian joven entra al tablero, el Obsidian te otorga 50 puntos de escudo.',
-                    'Cuando un Obsidian joven abandona el tablero, el Obsidian hace daño igual a tus puntos de escudo a tu oponente. '
+                    'Cuando un Obsidian joven entra al tablero, el Obsidian te otorga 50 <img src="/icons/escudo.png" alt="Ícono de ataque">.',
+                    'Cuando un Obsidian joven abandona el tablero, el Obsidian hace daño igual a tus <img src="/icons/escudo.png" alt="Ícono de ataque"> a tu oponente.'
+                ],
+                Global: []
+            }
+        },
+        {
+            name: 'Dragón negro',
+            name_id: 'dragon_negro',
+            rarity: 'rare',
+            spaces: 2,
+            attack_value: 200,
+            synergies: ['Grande', 'Dragonil', 'Inteligente', 'Ígneo', 'Volador'],
+            type: 'Monster',
+            effects: {
+                Actions: ['Asalta al monstruo activo de tu oponente con su Aliento de fuego'],
+                Constants: [],
+                Triggered: [
+                    'Tras activarse una herramienta Mineral, la destruye.'
+                ],
+                Global: []
+            }
+        },
+        {
+            name: 'Dragón verde',
+            name_id: 'dragon_verde',
+            rarity: 'rare',
+            spaces: 3,
+            attack_value: 0,
+            synergies: ['Colosal', 'Dragonil', 'Inteligente', 'Volador'],
+            type: 'Monster',
+            effects: {
+                Actions: ['Se come todos los monstruos pequeños con Prontitud menor.'],
+                Constants: [],
+                Triggered: [
+                    'Si un efecto de tu oponente le hace objetivo, obtiene 50 <img src="/icons/ataque_estupido.png" alt="Ícono de ataque">.',
+                    'Si el Dragón verde ya atacó y un efecto del oponente le hace objetivo, el dragón hace una cantidad de daño igual a su valor de ataque al oponente.'
                 ],
                 Global: []
             }
@@ -168,76 +202,88 @@ export class AppComponent implements AfterViewInit {
         this.renderer.setStyle(card, 'zIndex', '0');
     }
 
+    private tooltipTimeout: any = null; // 📌 Guardamos el timeout para cancelarlo si es necesario
+
     // 📌 Mostrar tooltip
     private showTooltip(card: HTMLElement) {
-        this.hideTooltip(card);
+        this.hideTooltip(card); // 📌 Asegura que no haya tooltips previos
 
-        const cardName = card.getAttribute('data-name');
-        if (!cardName) return;
+        // 📌 Si había un timeout anterior, lo cancelamos antes de crear uno nuevo
+        if (this.tooltipTimeout) {
+            clearTimeout(this.tooltipTimeout);
+        }
 
-        const cardData = this.cards.find(c => c.name_id === cardName);
-        if (!cardData) return;
+        // 📌 Iniciamos un timeout de 100 ms antes de crear el tooltip
+        this.tooltipTimeout = setTimeout(() => {
+            const cardName = card.getAttribute('data-name');
+            if (!cardName) return;
 
-        // 📌 Desplaza la carta al centro antes de mostrar el tooltip
-        card.scrollIntoView({
-            behavior: "smooth",
-            block: "center",
-            inline: "center"
-        });
+            const cardData = this.cards.find(c => c.name_id === cardName);
+            if (!cardData) return;
 
-        const dialog = document.createElement('div');
-        dialog.classList.add('hover-dialog', 'hover-dialog-hidden', 'borde_fancy');
+            // 📌 Desplaza la carta al centro antes de mostrar el tooltip
+            card.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+                inline: "center"
+            });
 
-        let textoAcciones = cardData.effects.Actions.length === 0 ? '' : `
-            <h2>Acción</h2>
-            <div>${cardData.effects.Actions.map(a => `<p>${a}</p>`).join('')}</div>
-        `;
+            const dialog = document.createElement('div');
+            dialog.classList.add('hover-dialog', 'hover-dialog-hidden', 'borde_fancy');
 
-        let textoConstantes = cardData.effects.Constants.length === 0 ? '' : `
-            <h2>Efectos constantes</h2>
-            <div>${cardData.effects.Constants.map(c => `<p>${c}</p>`).join('')}</div>
-        `;
+            let textoAcciones = cardData.effects.Actions.length === 0 ? '' : `
+                <div class="accion"><p class="title">Acción</p>${cardData.effects.Actions.map(a => `<img src="/icons/accion.png"><p class="list">${a}</p>`).join('')}</div>
+            `;
 
-        let textoDesencadenadas = cardData.effects.Triggered.length === 0 ? '' : `
-            <h2>Efectos desencadenados</h2>
-            <div>${cardData.effects.Triggered.map(t => `<p>${t}</p>`).join('')}</div>
-        `;
+            let textoConstantes = cardData.effects.Constants.length === 0 ? '' : `
+                <div class="constante"><p class="title">Efectos constantes</p>${cardData.effects.Constants.map(c => `<img src="/icons/constante.png"><p class="list">${c}</p>`).join('')}</div>
+            `;
 
-        let textoGlobales = cardData.effects.Global.length === 0 ? '' : `
-            <h2>Efectos globales</h2>
-            <div>${cardData.effects.Global.map(g => `<p>${g}</p>`).join('')}</div>
-        `;
+            let textoDesencadenadas = cardData.effects.Triggered.length === 0 ? '' : `
+                <div class="desencadenado"><p class="title">Efectos desencadenados</p>${cardData.effects.Triggered.map(t => `<img src="/icons/desencadenado.png"><p class="list">${t}</p>`).join('')}</div>
+            `;
 
-        let contentHtml = `
+            let textoGlobales = cardData.effects.Global.length === 0 ? '' : `
+                <div class="global"><p class="title">Efectos globales</p>${cardData.effects.Global.map(g => `<img src="/icons/global.png"><p class="list">${g}</p>`).join('')}</div>
+            `;
+
+            let contentHtml = `
             <div class="rules_container">
                 ${textoAcciones}
                 ${textoConstantes}
                 ${textoDesencadenadas}
                 ${textoGlobales}
             </div>
-        `;
+            `;
 
-        dialog.innerHTML = contentHtml;
-        document.body.appendChild(dialog);
+            dialog.innerHTML = contentHtml;
+            document.body.appendChild(dialog);
 
-        const rect = card.getBoundingClientRect();
-        const espacioDerecha = window.innerWidth - rect.right;
+            const rect = card.getBoundingClientRect();
+            const espacioDerecha = window.innerWidth - rect.right;
 
-        if (espacioDerecha >= 250) {
-            dialog.style.top = `${window.scrollY + rect.top + 50}px`;
-            dialog.style.left = `${window.scrollX + rect.right + 20}px`;
-        } else {
-            dialog.style.top = `${window.scrollY + rect.top}px`;
-            dialog.style.left = `${window.scrollX + rect.left - 250}px`;
-        }
+            if (espacioDerecha >= 350) {
+                dialog.style.top = `${window.scrollY + rect.top + 50}px`;
+                dialog.style.left = `${window.scrollX + rect.right + 20}px`;
+            } else {
+                dialog.style.top = `${window.scrollY + rect.top + 50}px`;
+                dialog.style.left = `${window.scrollX + rect.left - 350}px`;
+            }
 
-        requestAnimationFrame(() => dialog.classList.remove('hover-dialog-hidden'));
+            requestAnimationFrame(() => dialog.classList.remove('hover-dialog-hidden'));
 
-        (card as any)._hoverDialog = dialog;
+            (card as any)._hoverDialog = dialog;
+        }, 250); // 📌 Esperamos 250ms antes de crear el tooltip
     }
 
 
     private hideTooltip(card: HTMLElement) {
+        // 📌 Si hay un timeout en curso, lo cancelamos
+        if (this.tooltipTimeout) {
+            clearTimeout(this.tooltipTimeout);
+            this.tooltipTimeout = null;
+        }
+
         const dialog = (card as any)._hoverDialog;
         if (dialog) {
             dialog.classList.add('hover-dialog-hidden');
@@ -256,5 +302,10 @@ export class AppComponent implements AfterViewInit {
             hasBackdrop: true,
             data: { message: "Este es el diálogo que abriste con el favicon" }
         });
+    }
+
+    getAttackIcon(card: Card): string {
+        const basePath = '/icons/ataque_';
+        return card.synergies.includes('Inteligente') ? `${basePath}inteligente.png` : `${basePath}estupido.png`;
     }
 }
