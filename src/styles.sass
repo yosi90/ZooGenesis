@@ -27,12 +27,15 @@ body
     .hover-dialog
         position: absolute
         min-width: 200px
-        max-width: 300px
+        max-width: 600px
+
+        display: grid
+        grid-template: auto / 1fr 1fr
 
         font-family: 'Merriweather', serif
         color: rgba(0, 0, 0, .9)
 
-        background: rgba(0, 0, 0, 0.8)
+        background: rgba(201, 153, 51, .8)
         border-radius: 8px
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3)
 
@@ -41,9 +44,36 @@ body
         transition: opacity 0.2s ease, transform 0.2s ease
         z-index: 1000
 
-        .rules_container
-            margin: -5px -8px
+        padding: 10px
+        
+        h1
+            color: white
+            text-shadow: 0 1px 2px black, 1px 0 2px black, -1px 0 2px black, 0 -1px 2px black, 0 7px 8px rgba(0, 0, 0, 0.8), -3px 0 8px rgba(0, 0, 0, 0.8)
+            font-family: "Merienda", serif
+            font-optical-sizing: auto
+            font-weight: 100
+            font-style: normal
+            text-align: center
 
+            border-radius: 5px
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
+
+            margin: 0 0 15px 0
+
+            &.bronce
+                background: url('/icons/bronce.png')
+                background-size: 100% auto
+
+            &.plata
+                background: url('/icons/plata.png')
+
+            &.oro
+                background: url('/icons/oro.png')
+
+            &.diamante
+                background: url('/icons/diamante.png')
+
+        .rules_container, .augments_container
             div
                 display: grid
                 grid-template: auto / 25px 1fr
@@ -51,6 +81,7 @@ body
                 align-items: center
 
                 border-radius: 5px
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
 
                 padding: 1px 6px 3px
                 margin: 0px 6px 10px 6px
@@ -97,10 +128,14 @@ body
                     background-color: rgba(68, 156, 33, 0.3)
 
                 &.desencadenado
-                    background-color: rgba(0, 68, 255, 0.397)
+                    // background-color: rgba(189, 189, 189, 0.295)
+                    background-color: rgba(95, 0, 172, 0.295)
 
                 &.global
                     background-color: rgba(59, 1, 1, 0.3)
+
+                &.augments
+                    background-color: rgba(138, 138, 138, 0.411)
 
 
     .hover-dialog-hidden

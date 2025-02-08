@@ -7,7 +7,7 @@
     align-content: center
 
     .rules
-        position: absolute
+        position: fixed
         top: 2%
         left: 2%
 
@@ -29,7 +29,7 @@
             transform: scale(.9)
 
     .legend
-        position: absolute
+        position: fixed
         top: 11%
         left: 2%
 
@@ -47,18 +47,23 @@
         padding: 10px
 
         &:hover+.legend_panel
-            display: grid
-            grid-template: auto / 1fr 1fr 1fr
-            justify-content: center
-            align-items: center
+            display: flex
+            flex-direction: column
+
+            .icons_container
+                display: grid
+                grid-template: auto / 1fr 1fr 1fr
+                justify-content: center
+                align-items: center
 
     .legend_panel
-        position: absolute
+        position: fixed
         top: 10%
         left: 1.5%
 
         display: none
 
+        max-height: 70%
         max-width: 96.5%
 
         color: white
@@ -70,50 +75,61 @@
         border-radius: 10px
         box-shadow: 2px 0px 4px rgb(22, 22, 22), 0px 2px 4px rgb(22, 22, 22), 2px 2px 6px rgb(22, 22, 22)
 
+        overflow: hidden
         z-index: 2
 
         padding: 5px 20px
 
-        &:hover
-            display: grid
-            grid-template: auto / 1fr 1fr 1fr
-            justify-content: center
-            align-items: center
+        h1
+            width: 100%
 
-        h1, h3            
             text-align: center
 
-        h3
-            align-self: flex-start
+        &:hover
+            display: flex
+            flex-direction: column
+            
+            .icons_container
+                display: grid
+                grid-template: auto / 1fr 1fr 1fr
+                justify-content: center
+                align-items: center
 
-            border-bottom: 3px solid rgba(100, 38, 38, 0.6)
+        .icons_container
+            overflow: auto
 
-            margin: 0
+            h3
+                align-self: flex-start
 
-        img
-            width: 30px
+                text-align: center
 
-        p
-            font-size: 22px
+                border-bottom: 3px solid rgba(100, 38, 38, 0.6)
 
-            margin: 8px 0 0 15px
+                margin: 0
 
-        .layout
-            display: grid
-            grid-template: auto / 25px 1fr
-            justify-content: center
-            align-items: center
-
-            height: 100%
-
-            padding: 10px
-
-        .layout_extended
-            grid-template: auto / 25px 1fr 25px 1fr 25px 1fr
+            img
+                width: 30px
 
             p
-                margin-right: 40px
+                font-size: 22px
 
+                margin: 8px 0 0 15px
+
+            .layout
+                display: grid
+                grid-template: auto / 25px 1fr
+                justify-content: center
+                align-items: center
+
+                height: 100%
+
+                padding: 10px
+
+            .layout_extended
+                grid-template: auto / 25px 1fr 25px 1fr 25px 1fr
+
+                p
+                    margin-right: 40px
     
     .card
         position: relative
@@ -154,8 +170,26 @@
 
                 background-color: rgba(63, 63, 63, 0.4)
 
-                border: 1px solid rgba(0, 0, 0, 0.4)
                 border-radius: 25px / 50px
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
+
+                transition: 0.4s
+
+                opacity: 1
+                z-index: 2
+
+                &.bronce
+                    background: url('/icons/bronce.png')
+                    background-size: 100% auto
+
+                &.plata
+                    background: url('/icons/plata.png')
+
+                &.oro
+                    background: url('/icons/oro.png')
+
+                &.diamante
+                    background: url('/icons/diamante.png')
                 
                 p
                     transition: 0.4s ease-in-out
@@ -165,14 +199,55 @@
                     padding: 0
                     margin: 0
 
-            .attack_value
+            .synergies
                 position: absolute
-                bottom: 10px
-                right: 10px
+                top: 96px
+                right: 2px
+
+                height: 245px
+                max-height: 245px
+                width: 50px
+                max-width: 50px
+
+                transition: 0.4s
+                overflow: scroll
+                z-index: 2
+
+                padding-right: 4px
+
+                .synergie
+                    width: 40px
+
+                    background-color: rgba(0, 0, 0, .7)
+                    background-size: 100% auto
+                    border: 3px solid rgb(84, 44, 44)
+                    border-radius: 50%
+
+                    transition: 0.4s
+                    z-index: 2
+
+                    padding: 4px
+
+                    &:hover
+                        transform: scale(1.2)
+
+            .attack_value, .type
+                position: absolute
+                bottom: 5px
 
                 display: flex
                 justify-content: center
                 align-items: center
+
+                background: url('../assets/media/img/rock_pattern.jpg')
+                background-size: 100% auto
+                border: 3px solid rgb(84, 44, 44)
+
+                transition: 0.4s
+                z-index: 2
+
+            .attack_value
+                right: 5px
 
                 min-width: 10px
 
@@ -180,13 +255,7 @@
                 font-weight: bold
                 text-shadow: 0 1px 2px white, 1px 0 2px white, -1px 0 2px white, 0 -1px 2px white, 0 7px 8px rgba(255, 255, 255, 0.8), -3px 0 8px rgba(255, 255, 255, 0.8)
 
-                background: url('../assets/media/img/rock_pattern.jpg')
-                background-size: 100% auto
-                background-color: rgb(165, 165, 165)
-                border: 3px solid rgb(84, 44, 44)
                 border-radius: 25px / 50px
-
-                z-index: 2
 
                 gap: 5px
                 padding: 2px 6px
@@ -197,17 +266,37 @@
                 p
                     margin: 0
 
-        &:hover
-            .card-body .card-title 
-                background-color: rgba(0, 0, 0, 0)
+            .type
+                left: 5px
 
-                border: none
+                width: 40px
+                height: 40px
+
+                border-radius: 50%
+
+                img
+                    width: 30px
+
+                
+                &:hover
+                    width: 60px
+                    height: 60px
+                    img
+                        width: 40px
+
+        &:hover
+            .card-body .card-title
+                opacity: 0
 
                 p
                     position: relative
                     
                     text-shadow: -1px 0 2px black, 0 -1px 2px black, 0 7px 8px rgba(0, 0, 0, .8), -3px 0 8px rgba(0, 0, 0, .8)
                     font-size: 40px
+
+        &:active
+            .synergies, .attack_value, .type, .border
+                opacity: 0
 
         .border
             position: absolute
@@ -219,6 +308,7 @@
             background-position: center
             background-color: rgba(0, 0, 0, 0)
 
+            transition: 0.4s
             pointer-events: none
             z-index: 1
 
@@ -274,7 +364,7 @@
     aspect-ratio: 9/7
     
     .border
-        background-size: 114% 101%
+        background-size: 116% 101%
 
     &.comun .border
         background-image: url("../assets/media/img/borders/bordeGCommon.png")
