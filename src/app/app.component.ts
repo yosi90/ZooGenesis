@@ -511,7 +511,7 @@ export class AppComponent implements AfterViewInit {
             base_quality: "bronce",
             max_quality: "diamante",
             spaces: 2,
-            attack_value: 0, // No tiene valor de ataque
+            attack_value: 0,
             synergies: ["Grande", "Animal", "Inteligente", "Subterraneo"],
             type: "Monstruo",
             effects: {
@@ -538,7 +538,7 @@ export class AppComponent implements AfterViewInit {
             base_quality: "plata",
             max_quality: "diamante",
             spaces: 1,
-            attack_value: 200, // Valor de escudo
+            attack_value: 200,
             synergies: ["Pequeño", "Mineral"],
             type: "Herramienta",
             effects: {
