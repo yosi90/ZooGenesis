@@ -240,19 +240,85 @@ export class AppComponent implements AfterViewInit {
             base_quality: 'bronce',
             max_quality: 'diamante',
             spaces: 1,
+            attack_value: 50,
+            synergies: ['Pequeño', 'Animal', 'Estúpido', 'Subterráneo'],
+            type: 'Monstruo',
+            effects: {
+                Actions: [{ Value: 'Si sigue oculto, deja de ocultarse y duplica su valor de <img src="/icons/ataque_estupido.png">', disclaimer: '' }],
+                Constants: [{ Value: 'Se oculta al rival como una carta de campo de whego.', disclaimer: '' }],
+                Triggered: [{ Value: 'Mientras está oculto, sí es objetivo de un efecto, deja de ocultarse.', disclaimer: '' }],
+                Global: []
+            },
+            augments: [
+                { quality: "plata", effect: "Duplica su valor de <img src='/icons/ataque_estupido.png'>" },
+                { quality: "oro", effect: "Duplica su valor de <img src='/icons/ataque_estupido.png'>" },
+                { quality: "diamante", effect: "Ahora cuando se activa su efecto <img src='/icons/desencadenado.png'> asalta al origen del efecto y lo aturde durante el resto de la ronda." }
+            ]
+        },
+        {
+            name: 'Campo de Whego',
+            name_id: 'campo_de_whego',
+            rarity: 'comun',
+            base_quality: 'bronce',
+            max_quality: 'diamante',
+            spaces: 1,
+            attack_value: 100,
+            synergies: ['Pequeño', 'Vegetal'],
+            type: 'Alimento',
+            effects: {
+                Actions: [{ Value: 'Los <img src="/icons/monstruo.png"> adyacentes contrarrestan el próximo efecto de tu rival que fuese a alterarles el estado.', disclaimer: '' }],
+                Constants: [{ Value: 'El valor de <img src="/icons/curacion.png"> del Campo de Whego aumenta en 100 por cada <img src="/icons/monstruo.png"><img src="/icons/inteligente.png"> adyacente.', disclaimer: '' }],
+                Triggered: [],
+                Global: []
+            },
+            augments: [
+                { quality: "plata", effect: "Aumenta en 100 su valor de <img src='/icons/curacion.png'> y el valor de <img src='/icons/curacion.png'> de su <img src='/icons/constante.png'>." },
+                { quality: "oro", effect: "Aumenta en 100 su valor de <img src='/icons/curacion.png'> y el valor de <img src='/icons/curacion.png'> de su <img src='/icons/constante.png'>." },
+                { quality: "diamante", effect: "Los <img src='/icons/monstruo.png'> adyacentes mejoran su calidad en un paso." }
+            ]
+        },
+        {
+            name: 'Armarak',
+            name_id: 'armarak',
+            rarity: 'comun',
+            base_quality: 'bronce',
+            max_quality: 'diamante',
+            spaces: 1,
             attack_value: 0,
             synergies: ['Pequeño', 'Animal', 'Estúpido', 'Subterráneo'],
             type: 'Monstruo',
             effects: {
                 Actions: [{ Value: 'Asalta al <img src="/icons/monstruo.png"> activo del oponente y lo envenena impidiendo que actúe este turno e impidiendo que sus efectos se activen por la duración del veneno.', disclaimer: 'Si la carta activa no es un monstruo, se contrarresta.' }],
                 Constants: [],
-                Triggered: [{ Value: 'Cuando un efecto de tu oponente le hace objetivo, el Nimroot se oculta bajo tierra y reaparece al final de la etapa en una posición aleatoria del tablero, cuya etapa aún no haya pasado.', disclaimer: 'La reaparición puede ser en cualquier espacio. Si es necesario desplaza las demás cartas.' }],
+                Triggered: [{ Value: 'Cuando un efecto de tu oponente le hace objetivo, el Armarak se oculta bajo tierra y reaparece al final de la etapa en una posición aleatoria del tablero, cuya etapa aún no haya pasado.', disclaimer: 'La reaparición puede ser en cualquier espacio aún no activado. Si es necesario desplaza las demás cartas.' }],
                 Global: []
             },
             augments: [
                 { quality: "plata", effect: "El veneno afecta por dos etapas." },
                 { quality: "oro", effect: "El veneno afecta por tres etapas." },
                 { quality: "diamante", effect: "El veneno afecta por cuatro etapas." }
+            ]
+        },
+        {
+            name: 'Turoon',
+            name_id: 'turoon',
+            rarity: 'comun',
+            base_quality: 'bronce',
+            max_quality: 'diamante',
+            spaces: 1,
+            attack_value: 0,
+            synergies: ['Pequeño', 'Animal', 'Volador'],
+            type: 'Monstruo',
+            effects: {
+                Actions: [{ Value: 'Vuela e intercambia su posición con la de otro <img src="/icons/monstruo.png"> <img src="/icons/pequeño.png"> mejor preparado.', disclaimer: 'Elige la carta con más posibilidades de salir bien parada.' }],
+                Constants: [],
+                Triggered: [{ Value: 'Una vez por partida, si es objetivo de un efecto, activa su <img src="/icons/accion.png">', disclaimer: '' }],
+                Global: []
+            },
+            augments: [
+                { quality: 'plata', effect: 'Ahora su efecto <img src="/icons/desencadenado.png"> le permite hibernar durante la etapa y evitar cualquier efecto si no hay otro <img src="/icons/monstruo.png"> <img src="/icons/pequeño.png"> en tu tablero.' },
+                { quality: 'oro', effect: 'Ahora puede activar hasta dos veces su efecto <img src="/icons/desencadenado.png">.' },
+                { quality: 'diamante', effect: 'Ahora su efecto <img src="/icons/desencadenado.png"> no tiene límite de activaciones.' }
             ]
         },
         {
@@ -278,6 +344,27 @@ export class AppComponent implements AfterViewInit {
             ]
         },
         {
+            name: 'Quipe de las llanuras',
+            name_id: 'quipe_de_las_llanuras',
+            rarity: 'comun',
+            base_quality: 'plata',
+            max_quality: 'diamante',
+            spaces: 2,
+            attack_value: 50,
+            synergies: ['Grande', 'Animal'],
+            type: 'Monstruo',
+            effects: {
+                Actions: [],
+                Constants: [{ Value: 'Los <img src="/icons/monstruo.png"> <img src="/icons/inteligente.png"> adyacentes se activan con prioridad.', disclaimer: 'Su <img src="/icons/accion.png"> ocurre antes que la del <img src="/icons/monstruo.png"> activo rival.' }],
+                Triggered: [],
+                Global: []
+            },
+            augments: [
+                { quality: "oro", effect: "Duplica su valor de <img src='/icons/ataque_estupido.png'>." },
+                { quality: "diamante", effect: "Duplica su valor de <img src='/icons/ataque_estupido.png'>." }
+            ]
+        },
+        {
             name: 'Lirvatha',
             name_id: 'lirvatha',
             rarity: 'infrecuente',
@@ -296,6 +383,26 @@ export class AppComponent implements AfterViewInit {
             augments: [
                 { quality: "oro", effect: "Triplica el <img src='/icons/ataque_estupido.png'> de los <img src='/icons/monstruo.png'> adyacentes si son <img src='/icons/arboreo.png'>." },
                 { quality: "diamante", effect: "Cuadruplica el <img src='/icons/ataque_estupido.png'> de todos los <img src='/icons/monstruo.png'> <img src='/icons/arboreo.png'> de tu tablero." }
+            ]
+        },
+        {
+            name: 'Savia de árbol Volod',
+            name_id: 'savia_de_arbol_volod',
+            rarity: 'mitica',
+            base_quality: 'oro',
+            max_quality: 'diamante',
+            spaces: 1,
+            attack_value: 1000,
+            synergies: ['Pequeño', 'Vegetal'],
+            type: 'Alimento',
+            effects: {
+                Actions: [{ Value: 'Duplica el ataque de tus <img src="/icons/monstruo.png"> <img src="/icons/arboreo.png">.', disclaimer: '' }],
+                Constants: [{ Value: 'Duplica el ataque de tus <img src="/icons/monstruo.png"> <img src="/icons/arboreo.png">.', disclaimer: '' }],
+                Triggered: [{ Value: 'Si un efecto destruye la Savia de árbol Volod, el tablero germina y se convierte en un bosque.', disclaimer: 'El bosque duplica el ataque de los <img src="/icons/monstruo.png"> <img src="/icons/arboreo.png">. y Destruye a todos los monstruos <img src="/icons/subterraneo.png">.' }],
+                Global: []
+            },
+            augments: [
+                { quality: "diamante", effect: "<img src='/icons/constante.png'> - Los <img src='/icons/monstruo.png'> <img src='/icons/arboreo.png'> adyacentes mejoran su calidad a diamante." }
             ]
         },
         {
@@ -372,7 +479,7 @@ export class AppComponent implements AfterViewInit {
             max_quality: "diamante",
             spaces: 3,
             attack_value: 300,
-            synergies: ["Colosal", "Dragonil", "Estúpido", "Gelido","Igneo", "Corrosivo", "Volador"],
+            synergies: ["Colosal", "Dragonil", "Estúpido", "Gelido", "Igneo", "Corrosivo", "Volador"],
             type: "Monstruo_fusion",
             effects: {
                 Actions: [],
@@ -921,15 +1028,14 @@ export class AppComponent implements AfterViewInit {
     }
 
     getTypeName(card: Card): string {
-        if(!card.type.includes('_'))
+        if (!card.type.includes('_'))
             return card.type.replace('_', ' ');
-        else
-        {
-            if(card.type === 'Monstruo_fusion')
+        else {
+            if (card.type === 'Monstruo_fusion')
                 return 'Monstruo fusión'
-            if(card.type === 'Monstruo_transformacion')
+            if (card.type === 'Monstruo_transformacion')
                 return 'Monstruo transformación'
-            if(card.type === 'Monstruo_invocacion')
+            if (card.type === 'Monstruo_invocacion')
                 return 'Monstruo invocación'
         }
         return 'Error';
@@ -937,7 +1043,7 @@ export class AppComponent implements AfterViewInit {
 
     getSynergieIcon(synergie: string): string {
         const basePath = '/icons/';
-        if(synergie === 'Pequeño')
+        if (synergie === 'Pequeño')
             return `${basePath}${synergie.toLowerCase()}.png`;
         return `${basePath}${synergie.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}.png`;
     }
