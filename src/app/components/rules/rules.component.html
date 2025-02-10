@@ -11,53 +11,88 @@
         <h4>Reglas del juego</h4>
         <img src="icons/reglas.png">
     </div>
-    <div class="rules_container">
-        <div class="rules">
-            <img src="icons/uno.png">
-            <p>Cada partida consta de 5 rondas</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/dos.png">
-            <p>Cada ronda, los jugadores eligen con que cartas jugarán</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/tres.png">
-            <p>Los jugadores colocan las cartas en su tablero. En el orden que más convenga a su estrategia</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/cuatro.png">
-            <p>Cada carta ocupa de 1 a 3 espacios en el tablero, pero en la primera ronda el tablero solo dispone de 2
-                espacios
-            </p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/cinco.png">
-            <p>Tras cada ronda, el tablero obtiene dos nuevos espacios. Hasta un total de 10</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/seis.png">
-            <p>Las rondas funcionan por etapas. En cada etapa se activan al mismo tiempo una carta tuya y del oponente</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/siete.png">
-            <p>Al activarse, algunas cartas hacen daño, otras curan y ¡otras pueden incluso comerse otras cartas!</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/ocho.png">
-            <p>Al final de la quinta ronda se hará un recuento del daño recibido por cada jugador y el que más daño haya
-                causado será el ganador</p>
-        </div>
-        <br>
-        <div class="rules">
-            <img src="icons/nueve.png">
-            <p>El ganador tendrá derecho a elegir una carta de las que jugó su oponente y quedarse con ella</p>
-        </div>
-    </div>
+    <mat-stepper headerPosition="bottom" #stepper>
+        <mat-step>
+            <ng-template matStepLabel>Rondas</ng-template>
+            <div class="rules">
+                <img src="icons/uno.png">
+                <p>Cada partida consta de 5 rondas</p>
+            </div>
+            <p class="aviso gigante">5 Rondas</p>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Eligiendo cartas</ng-template>
+            <div class="rules">
+                <img src="icons/dos.png">
+                <p>Cada ronda, los jugadores eligen con que cartas jugarán</p>
+            </div>
+            <p class="aviso gigante">Imagen aquí [Placeholder]</p>
+            <!-- Imagen de el ratón recorriendo la galería de cartas -->
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Colocación</ng-template>
+            <div class="rules">
+                <img src="icons/tres.png">
+                <p>Los jugadores colocan las cartas en su tablero. En el orden que más convenga a su estrategia</p>
+            </div>
+            <p class="aviso gigante">Colócalas sabiamente</p>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Espacios</ng-template>
+            <div class="rules">
+                <img src="icons/cuatro.png">
+                <p>Cada carta ocupa de 1 a 3 espacios en el tablero, pero en la primera ronda el tablero solo dispone de
+                    2 espacios</p>
+            </div>
+            <p class="aviso gigante">Imagen aquí [Placeholder]</p>
+            <!-- Imagen de el tablero con solo dos espacios, animación que muestre 2 cartas pequeñas, luego una grande, luego vuelta a empezar -->
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Paso de las rondas</ng-template>
+            <div class="rules">
+                <img src="icons/cinco.png">
+                <p>Tras cada ronda, el tablero obtiene dos nuevos espacios. Hasta un total de 10</p>
+            </div>
+            <p class="aviso gigante">Imagen aquí [Placeholder]</p>
+            <!-- Imagen del tablero a través de las rondas -->
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Etapas</ng-template>
+            <div class="rules">
+                <img src="icons/seis.png">
+                <p>Las rondas funcionan por etapas. En cada etapa se activan al mismo tiempo una carta tuya y del
+                    oponente</p>
+            </div>
+            <p class="aviso gigante">Imagen aquí [Placeholder]</p>
+            <!-- Imagen de las cartas activándose por prontitud -->
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>Activaciones</ng-template>
+            <div class="rules">
+                <img src="icons/siete.png">
+                <p>Al activarse, algunas cartas hacen daño, otras curan y ¡otras pueden incluso comerse otras cartas!
+                </p>
+            </div>
+            <p class="aviso gigante">Imagen aquí [Placeholder]</p>
+            <!-- Animación de los distintos tipos de carta -->
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>El ganador</ng-template>
+            <div class="rules">
+                <img src="icons/ocho.png">
+                <p>Al final de la quinta ronda se hará un recuento del daño recibido por cada jugador y el que más daño
+                    haya
+                    causado será el ganador</p>
+            </div>
+            <p class="aviso gigante">No pierdas, no te gustará</p>
+        </mat-step>
+        <mat-step>
+            <ng-template matStepLabel>El premio</ng-template>
+            <div class="rules">
+                <img src="icons/nueve.png">
+                <p>El ganador tendrá derecho a elegir una carta de las que jugó su oponente y quedarse con ella</p>
+            </div>
+            <p class="aviso gigante">No digas que no te avisé</p>
+        </mat-step>
+    </mat-stepper>
 </mat-dialog-content>
