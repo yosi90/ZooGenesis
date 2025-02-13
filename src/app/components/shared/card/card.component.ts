@@ -14,6 +14,7 @@ export class CardComponent implements AfterViewInit {
     @Input() card!: Card;
     @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;
 
+
     private tooltipTimeout: any = null; // Guardamos el timeout para cancelarlo
 
     constructor(private renderer: Renderer2) { }

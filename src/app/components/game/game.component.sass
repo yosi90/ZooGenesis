@@ -1,0 +1,31 @@
+.contenedor
+    display: flex
+    flex-direction: column
+    height: 100vh
+    position: relative
+
+.panel
+    flex: 1
+    overflow: auto
+    padding: 10px
+
+.superior
+    background-color: #1a1a1a
+
+    min-height: 300px
+
+.inferior
+    background-color: #282828
+
+.separador
+    height: 8px
+    background: gray
+    cursor: ns-resize
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &::before
+        content: "⋮⋮⋮"
+        color: white
+        font-size: 16px

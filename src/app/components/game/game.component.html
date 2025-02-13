@@ -1,1 +1,11 @@
-<p>game works!</p>
+<div class="contenedor">
+    <div cdkDragResize cdkDrag class="panel superior" #tableroPanel>
+        <app-board></app-board>
+    </div>
+
+    <div cdkDragHandle class="separador"></div>
+
+    <div cdkDragResize cdkDrag class="panel inferior" #coleccionPanel>
+        <app-colection></app-colection>
+    </div>
+</div>
