@@ -1,0 +1,31 @@
+<div class="card {{card.rarity}}"
+    [ngClass]="card.spaces === 1 ? 'card-small' : card.spaces === 2 ? 'card-medium' : 'card-large'" #cardElement
+    [attr.data-name]="card.name_id">
+    <div class="border"></div>
+    <div id="{{card.name_id}}" class="card-body" [attr.data-sinergies]="card.synergies.join(' ')">
+        <div class="card-title" [ngClass]="card.base_quality">
+            <p>{{card.name}}</p>
+        </div>
+        <div class="synergies">
+            @for (synergy of card.synergies; track synergy) {
+            <img class="synergy" matTooltip="{{synergy}}" matTooltipPosition="before"
+                src="{{getSynergyIcon(synergy)}}">
+            }
+        </div>
+        <div *ngIf="card.attack_value > 0" class="attack_value" matTooltip="Valor de ataque">
+            <img [attr.src]="getAttackIcon(card)" alt="Icono de ataque">
+            <p>{{card.attack_value}}</p>
+        </div>
+        <div *ngIf="card.shield_value > 0" class="shield_value" matTooltip="Valor de escudo">
+            <img src="/icons/escudo.png" alt="Icono de escudo">
+            <p>{{card.attack_value}}</p>
+        </div>
+        <div *ngIf="card.heal_value > 0" class="heal_value" matTooltip="Valor de curación">
+            <img src="/icons/curacion.png" alt="Icono de curación">
+            <p>{{card.attack_value}}</p>
+        </div>
+        <div class="type" matTooltip="Tipo de carta - {{getTypeName(card)}}">
+            <img [attr.src]="getTypeIcon(card)" alt="Icono de tipo">
+        </div>
+    </div>
+</div>

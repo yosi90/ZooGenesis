@@ -1,0 +1,34 @@
+@import ../../../../assets/css/_colores
+
+:host
+    position: relative
+
+    display: flex
+    flex-flow: row wrap
+
+    justify-content: flex-start
+    align-items: center
+    align-content: center
+
+    padding: 100px 20px
+    margin: 0 10vw
+
+    .legend
+        position: fixed
+        top: 11%
+        left: 2%
+
+        background-color: rgba(0, 0, 0, .4)
+        border: 4px solid rgba(0, 0, 0, 0.6)
+        border-radius: 50%
+        
+        width: 60px
+
+        cursor: pointer
+        aspect-ratio: 1/1
+        z-index: 3
+
+        padding: 10px
+
+        &:hover+#app-leyend
+            display: block

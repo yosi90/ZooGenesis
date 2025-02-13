@@ -6,6 +6,8 @@ export interface Card {
     max_quality: string;
     spaces: number;
     attack_value: number;
+    shield_value: number;
+    heal_value: number;
     synergies: string[];
     type: string;
     effects: {

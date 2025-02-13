@@ -1,0 +1,72 @@
+mat-dialog-content {
+  display: grid;
+  grid-template: 78px 10px 40px 58px 1fr/1fr;
+  max-height: none;
+}
+mat-dialog-content .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+  padding-top: 10px;
+}
+mat-dialog-content .title img {
+  width: 40px;
+}
+mat-dialog-content .subtitle {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row nowrap;
+  margin-left: 30px;
+}
+mat-dialog-content .subtitle img {
+  width: 30px;
+  margin-left: 10px;
+}
+mat-dialog-content h2, mat-dialog-content h3 {
+  text-align: center;
+}
+mat-dialog-content hr {
+  width: 45%;
+}
+mat-dialog-content mat-stepper {
+  height: 100%;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper {
+  height: 100%;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .rules, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .rules {
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row nowrap;
+  background-color: rgba(190, 90, 90, 0.4);
+  border-radius: 25px;
+  padding: 2px 2px 2px 3px;
+  margin: 4px 4px 4px 35px;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .rules img, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .rules img {
+  width: 40px;
+  margin-right: 10px;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .rules p, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .rules p {
+  text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black;
+  margin: 0 20px 0 0;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .rules:nth-of-type(2n), mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .rules:nth-of-type(2n) {
+  background-color: rgba(192, 131, 131, 0.4);
+  margin-left: 70px;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .aviso, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .aviso {
+  font-family: "Merienda", serif;
+  text-shadow: 0 1px red, 1px 0 red, -1px 0 black, 0 -1px black;
+  text-align: center;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .gigante, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .gigante {
+  font-size: 100px;
+}
+mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-content-container .grande, mat-dialog-content mat-stepper ::ng-deep.mat-horizontal-stepper-wrapper .grande {
+  font-size: 60px;
+  margin-top: 140px;
+}/*# sourceMappingURL=rules.component.css.map */
