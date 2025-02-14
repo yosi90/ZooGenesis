@@ -48,18 +48,16 @@ export class CardComponent implements AfterViewInit {
         `);
 
         this.renderer.setStyle(card, 'transform', `
-            scale(1.1) perspective(500px) 
+            perspective(500px) 
             rotateX(${rotateX}deg) 
             rotateY(${rotateY}deg)
         `);
-        this.renderer.setStyle(card, 'zIndex', '10');
     }
 
     // 📌 Resetear efecto 3D
     private reset3DEffect(card: HTMLElement) {
         this.renderer.setStyle(card, 'boxShadow', '2px 2px 5px rgba(0, 0, 0, 0.4), -2px -2px 5px rgba(0, 0, 0, 0.4)');
-        this.renderer.setStyle(card, 'transform', `scale(1) perspective(0) rotateX(0deg) rotateY(0deg)`);
-        this.renderer.setStyle(card, 'zIndex', '0');
+        this.renderer.setStyle(card, 'transform', `perspective(0) rotateX(0deg) rotateY(0deg)`);
     }
 
     // 📌 Mostrar tooltip

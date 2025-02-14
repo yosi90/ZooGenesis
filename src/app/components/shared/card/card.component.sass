@@ -1,258 +1,262 @@
-.card
+.card-container
     position: relative
 
-    height: 460px
-
-    border-radius: 15px
-
-    box-shadow: 2px 2px 4px rgba(41, 41, 41, 0.4), -1px -1px 4px rgba(41, 41, 41, 0.4)
-
+    transition: transform .5s
     overflow: hidden
 
-    padding: 7px
     margin: 4px
 
-    .card-body
+    &:hover
+        overflow: visible
+        transform: scale(1.1)
+        z-index: 10
+
+        &>div[class^='border']
+            border-radius: 0
+
+            opacity: 0
+
+    &>div[class^='border']
+        position: absolute
+
+        width: 22px
+        height: 22px
+
+        background-color: rgb(53, 53, 53)
+
+        border: 4px double
+        border-radius: 60%
+
+        transition: 1s
+        z-index: 1
+
+    .border1
+        top: -9px
+        left: -9px
+
+    .border2
+        top: -9px
+        right: -9px
+
+    .border3
+        bottom: -9px
+        left: -9px
+
+    .border4
+        bottom: -9px
+        right: -9px
+
+    .card
         position: relative
 
-        height: 100%
+        height: 460px
 
-        background-size: 100% 100%
-        background-position: center
-        border-radius: 10px
+        border: 4px double
+        border-radius: 15px
 
-        transition: .4s
+        box-shadow: 2px 2px 4px rgba(41, 41, 41, 0.4), -1px -1px 4px rgba(41, 41, 41, 0.4)
+
         overflow: hidden
+        transition: padding .3s
 
-        .card-title
-            position: absolute
-            top: 1%
-            left: 3%
-            right: 3%
+        .card-body
+            position: relative
 
-            height: 5%
+            height: 100%
 
-            font-family: 'Caveat', cursive
-            font-weight: bolder
-            color: white
-            text-align: center
-            text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black
+            background-size: 100% 100%
+            background-position: center
+            border-radius: 10px
 
-            background-color: rgba(63, 63, 63, 0.4)
+            transition: .4s
+            overflow: hidden
 
-            border-radius: 25px / 50px
-            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
+            .card-title
+                position: absolute
+                top: 1%
+                left: 3%
+                right: 3%
 
-            transition: 0.4s
+                height: 5%
 
-            opacity: 1
-            z-index: 2
+                font-family: 'Caveat', cursive
+                font-weight: bolder
+                color: white
+                text-align: center
+                text-shadow: 0 1px black, 1px 0 black, -1px 0 black, 0 -1px black
 
-            &.bronce
-                background: url('/background/bronce.png')
-                background-size: 100% auto
+                background-color: rgba(63, 63, 63, 0.4)
 
-            &.plata
-                background: url('/background/plata.png')
+                border-radius: 25px / 50px
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
 
-            &.oro
-                background: url('/background/oro.png')
+                transition: 0.4s
 
-            &.diamante
-                background: url('/background/diamante.png')
-            
-            p
-                transition: 0.4s ease-in-out
-                
+                opacity: 1
                 z-index: 2
 
-                padding: 0
-                margin: 0
+                &.bronce
+                    background: url('/background/bronce.png')
+                    background-size: 100% auto
 
-        .synergies
-            position: absolute
-            top: 96px
-            right: 2px
+                &.plata
+                    background: url('/background/plata.png')
 
-            height: 245px
-            max-height: 245px
-            width: 50px
-            max-width: 50px
+                &.oro
+                    background: url('/background/oro.png')
 
-            transition: 0.4s
-            overflow: scroll
-            z-index: 2
+                &.diamante
+                    background: url('/background/diamante.png')
+                
+                p
+                    transition: 0.4s ease-in-out
+                    
+                    z-index: 2
 
-            padding-right: 4px
+                    padding: 0
+                    margin: 0
 
-            .synergy
-                width: 40px
+            .synergies
+                position: absolute
+                top: 96px
+                right: 2px
 
-                background-color: rgba(0, 0, 0, .7)
+                height: 245px
+                max-height: 245px
+                width: 50px
+                max-width: 50px
+
+                transition: 0.4s
+                overflow: scroll
+                z-index: 2
+
+                padding-right: 4px
+
+                .synergy
+                    width: 40px
+
+                    background-color: rgba(0, 0, 0, .7)
+                    background-size: 100% auto
+                    border: 3px solid rgb(84, 44, 44)
+                    border-radius: 50%
+
+                    transition: 0.4s
+                    z-index: 2
+
+                    padding: 4px
+
+                    &:hover
+                        transform: scale(1.2)
+
+            .attack_value, .shield_value, .heal_value, .type
+                position: absolute
+                bottom: 5px
+
+                display: flex
+                justify-content: center
+                align-items: center
+
+                background: url('../../../../assets/media/img/rock_pattern.jpg')
                 background-size: 100% auto
                 border: 3px solid rgb(84, 44, 44)
-                border-radius: 50%
 
                 transition: 0.4s
                 z-index: 2
 
-                padding: 4px
+            .attack_value, .shield_value, .heal_value
+                right: 5px
 
+                min-width: 10px
+
+                font-size: 20px
+                font-weight: bold
+                text-shadow: 0 1px 2px white, 1px 0 2px white, -1px 0 2px white, 0 -1px 2px white, 0 7px 8px rgba(255, 255, 255, 0.8), -3px 0 8px rgba(255, 255, 255, 0.8)
+
+                border-radius: 25px / 50px
+
+                gap: 5px
+                padding: 2px 6px
+
+                img 
+                    width: 20px
+
+                p
+                    margin: 0
+
+            .type
+                left: 5px
+
+                width: 40px
+                height: 40px
+
+                border-radius: 50%
+
+                img
+                    width: 30px
+
+                
                 &:hover
-                    transform: scale(1.2)
+                    width: 60px
+                    height: 60px
+                    img
+                        width: 40px
 
-        .attack_value, .shield_value, .heal_value, .type
+        &:hover
+            padding: 0
+
+            .card-body .card-title
+                opacity: 0
+
+                p
+                    position: relative
+                    
+                    text-shadow: -1px 0 2px black, 0 -1px 2px black, 0 7px 8px rgba(0, 0, 0, .8), -3px 0 8px rgba(0, 0, 0, .8)
+                    font-size: 40px
+
+        &:active
+            .synergies, .attack_value, .type, .border
+                opacity: 0
+
+        .border
             position: absolute
-            bottom: 5px
-
-            display: flex
-            justify-content: center
-            align-items: center
-
-            background: url('../../../../assets/media/img/rock_pattern.jpg')
-            background-size: 100% auto
-            border: 3px solid rgb(84, 44, 44)
+            top: -10px
+            left: -10px
+            right: -10px
+            bottom: -10px
+            
+            background-position: center
+            background-color: rgba(0, 0, 0, 0)
 
             transition: 0.4s
-            z-index: 2
+            pointer-events: none
+            z-index: 1
 
-        .attack_value, .shield_value, .heal_value
-            right: 5px
+        &.card-small
+            aspect-ratio: 3/7
 
-            min-width: 10px
+        &.card-medium
+            aspect-ratio: 6/7
 
-            font-size: 20px
-            font-weight: bold
-            text-shadow: 0 1px 2px white, 1px 0 2px white, -1px 0 2px white, 0 -1px 2px white, 0 7px 8px rgba(255, 255, 255, 0.8), -3px 0 8px rgba(255, 255, 255, 0.8)
+        &.card-large
+            aspect-ratio: 9/7
 
-            border-radius: 25px / 50px
+    .comun
+        border-color: black
 
-            gap: 5px
-            padding: 2px 6px
+    .infrecuente
+        border-color: rgb(112, 165, 87) !important
 
-            img 
-                width: 20px
+    .rara
+        border-color: rgb(219, 207, 95) !important
 
-            p
-                margin: 0
+    .mitica
+        border-color: rgb(125, 55, 139) !important
 
-        .type
-            left: 5px
+    .legendaria
+        border-color: rgb(139, 55, 55) !important
 
-            width: 40px
-            height: 40px
-
-            border-radius: 50%
-
-            img
-                width: 30px
-
-            
-            &:hover
-                width: 60px
-                height: 60px
-                img
-                    width: 40px
-
-    &:hover
-        .card-body .card-title
-            opacity: 0
-
-            p
-                position: relative
-                
-                text-shadow: -1px 0 2px black, 0 -1px 2px black, 0 7px 8px rgba(0, 0, 0, .8), -3px 0 8px rgba(0, 0, 0, .8)
-                font-size: 40px
-
-    &:active
-        .synergies, .attack_value, .type, .border
-            opacity: 0
-
-    .border
-        position: absolute
-        top: -10px
-        left: -10px
-        right: -10px
-        bottom: -10px
-        
-        background-position: center
-        background-color: rgba(0, 0, 0, 0)
-
-        transition: 0.4s
-        pointer-events: none
-        z-index: 1
-
-    &.card-small
-        aspect-ratio: 3/7
-
-        .border
-            background-size: 100% 101%
-
-        &.comun .border
-            background-image: url("../../../../assets/media/img/borders/bordePCommon.png")
-
-        &.infrecuente .border
-            background-image: url("../../../../assets/media/img/borders/bordePInfrequent.png")
-
-        &.rara .border
-            background-image: url("../../../../assets/media/img/borders/bordePRare.png")
-
-        &.mitica .border
-            background-image: url("../../../../assets/media/img/borders/bordePMithic.png")
-
-        &.legendaria .border
-            background-image: url("../../../../assets/media/img/borders/bordePLegendary.png")
-
-        &.unica .border
-            background-image: url("../../../../assets/media/img/borders/bordePUnique.png")
-
-    &.card-medium
-        aspect-ratio: 6/7
-        
-        .border
-            background-size: 111% 102%
-
-        &.comun .border
-            background-image: url("../../../../assets/media/img/borders/bordeMCommon.png")
-
-        &.infrecuente .border
-            background-image: url("../../../../assets/media/img/borders/bordeMInfrequent.png")
-
-        &.rara .border
-            background-image: url("../../../../assets/media/img/borders/bordeMRare.png")
-
-        &.mitica .border
-            background-image: url("../../../../assets/media/img/borders/bordeMMithic.png")
-
-        &.legendaria .border
-            background-image: url("../../../../assets/media/img/borders/bordeMLegendary.png")
-
-        &.unica .border
-            background-image: url("../../../../assets/media/img/borders/bordeMUnique.png")
-
-    &.card-large
-        aspect-ratio: 9/7
-        
-        .border
-            background-size: 116% 101%
-
-        &.comun .border
-            background-image: url("../../../../assets/media/img/borders/bordeGCommon.png")
-
-        &.infrecuente .border
-            background-image: url("../../../../assets/media/img/borders/bordeGInfrequent.png")
-
-        &.rara .border
-            background-image: url("../../../../assets/media/img/borders/bordeGRare.png")
-
-        &.mitica .border
-            background-image: url("../../../../assets/media/img/borders/bordeGMithic.png")
-
-        &.legendaria .border
-            background-image: url("../../../../assets/media/img/borders/bordeGLegendary.png")
-
-        &.unica .border
-            background-image: url("../../../../assets/media/img/borders/bordeGUnique.png")
+    .unica
+        border-color: rgb(139, 103, 55) !important
 
 #aprola
     background-image: url("../../../../assets/media/img/aprola.png")

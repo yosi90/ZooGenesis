@@ -1,5 +1,9 @@
-<ngx-slider [(value)]="cardSize" [options]="sliderOptions" (valueChange)="actualizarTamano()">
-</ngx-slider>
+<div class="slider-wrapper">
+    <div class="card-big" (click)="setMaxHeight()"></div>
+    <ngx-slider [(value)]="cardSize" [options]="sliderOptions" (valueChange)="actualizarTamano()">
+    </ngx-slider>
+    <div class="card-small" (click)="setMinHeight()"></div>
+</div>
 
 @for (card of cards; track card.name) {
 <app-card [card]="card"></app-card>

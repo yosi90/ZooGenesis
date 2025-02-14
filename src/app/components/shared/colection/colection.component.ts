@@ -40,4 +40,18 @@ export class ColectionComponent {
             }
         });
     }
+
+    setMaxHeight() {
+        if(this.cardSize === 460)
+            return;
+        this.cardSize = 460;
+        this.actualizarTamano();
+    }
+
+    setMinHeight() {
+        if(this.cardSize === 180)
+            return;
+        this.cardSize = 180;
+        this.actualizarTamano();
+    }
 }

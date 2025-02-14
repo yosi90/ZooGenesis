@@ -12,20 +12,43 @@
 .superior
     background-color: #1a1a1a
 
+    max-height: 500px
     min-height: 300px
 
 .inferior
-    background-color: #282828
+    background-color: rgb(53, 53, 53)
 
 .separador
-    height: 8px
-    background: gray
-    cursor: ns-resize
+    position: relative
+
     display: flex
     justify-content: center
     align-items: center
 
+    height: 8px
+
+    background: gray
+
+    cursor: ns-resize
+
     &::before
-        content: "⋮⋮⋮"
+        content: "⋯"
+
+        position: absolute
+        top: 50%
+
+        display: flex
+        align-items: center
+        justify-content: center
+
+        width: 35px
+        height: 20px
+        
         color: white
-        font-size: 16px
+        font-size: 17px
+
+        background: gray
+        border-radius: 6px
+
+        transform: translateY(-50%)
+        z-index: 12

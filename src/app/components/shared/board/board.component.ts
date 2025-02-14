@@ -9,11 +9,11 @@ import { CommonModule } from '@angular/common';
     styleUrl: './board.component.sass',
     animations: [
         trigger('expandirTablero', [
-            state('tiny', style({ width: 'calc(98px * 2)' })),
-            state('small', style({ width: 'calc(88px * 4)' })),
-            state('medium', style({ width: '508px' })),
-            state('large', style({ width: 'calc(83px * 8)' })),
-            state('full', style({ width: 'calc(82px * 10)' })),
+            state('tiny', style({  })),
+            state('small', style({  })),
+            state('medium', style({  })),
+            state('large', style({ })),
+            state('full', style({  })),
             transition('* => *', [animate('0.5s ease-in-out')]),
         ]),
     ],

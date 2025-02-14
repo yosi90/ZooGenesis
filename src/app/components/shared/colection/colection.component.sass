@@ -13,12 +13,54 @@
     padding: 100px 20px
     margin: 0 10vw
 
-    ngx-slider
+    .slider-wrapper
         position: fixed
-        bottom: 10px
+        bottom: 30px
         left: 20px
 
-        max-height: 200px
+        display: flex
+        justify-content: center
+        align-items: center
+        flex-flow: column wrap
+
+        height: 270px
+
+        background-color: rgba(73, 73, 73, 0.4)
+        border-radius: 5px
+
+        gap: 10px
+
+        div[class^='card-']
+            background-color: rgba(73, 73, 73, 0.8)
+            border-radius: 1px
+            box-shadow: 1px 1px 2px rgba(0, 0, 0, .4), -1px -1px 2px rgba(0, 0, 0, .4)
+
+            aspect-ratio: 3/6
+            cursor: pointer
+
+        .card-big
+            height: 30px
+
+        .card-small
+            height: 15px
+
+        ngx-slider
+
+            max-height: 180px
+
+            ::ng-deep 
+                .ngx-slider-pointer
+                    width: 24px
+                    height: 24px
+
+                    left: -10px !important
+
+                    &::after
+                        top: 8px
+                        left: 8px
+
+                .ngx-slider-model-value
+                    display: none
 
     .legend
         position: fixed
