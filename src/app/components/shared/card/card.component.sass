@@ -16,6 +16,13 @@
 
             opacity: 0
 
+    &.disable-hover:hover
+        transform: none
+        z-index: auto
+        
+        &>div[class^='border']
+            display: none
+
     &>div[class^='border']
         position: absolute
 
@@ -128,6 +135,7 @@
 
                 transition: 0.4s
                 overflow: scroll
+                overflow-x: hidden
                 z-index: 2
 
                 padding-right: 4px

@@ -12,6 +12,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 })
 export class CardComponent implements AfterViewInit {
     @Input() card!: Card;
+    @Input() allowFancyEvents: boolean = false;
+
     @ViewChild('cardElement', { static: true }) cardElement!: ElementRef;
 
 
@@ -31,6 +33,8 @@ export class CardComponent implements AfterViewInit {
 
     // 📌 Efecto 3D al mover el ratón
     private apply3DEffect(card: HTMLElement, event: MouseEvent) {
+        if(!this.allowFancyEvents)
+            return;
         const rect = card.getBoundingClientRect();
         const centerX = rect.left + rect.width / 2;
         const centerY = rect.top + rect.height / 2;
@@ -62,6 +66,8 @@ export class CardComponent implements AfterViewInit {
 
     // 📌 Mostrar tooltip
     private showTooltip(card: HTMLElement) {
+        if(!this.allowFancyEvents)
+            return;
         this.hideTooltip(card); // 📌 Asegura que no haya tooltips previos
 
         // 📌 Si había un timeout anterior, lo cancelamos antes de crear uno nuevo

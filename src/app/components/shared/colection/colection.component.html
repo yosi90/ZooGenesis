@@ -1,12 +1,16 @@
 <div class="slider-wrapper">
     <div class="card-big" (click)="setMaxHeight()"></div>
-    <ngx-slider [(value)]="cardSize" [options]="sliderOptions" (valueChange)="actualizarTamano()">
+    <ngx-slider [(value)]="cardSize" [options]="sliderOptions" (valueChange)="actualizarTamano($event)">
     </ngx-slider>
     <div class="card-small" (click)="setMinHeight()"></div>
 </div>
 
 @for (card of cards; track card.name) {
-<app-card [card]="card"></app-card>
+    @if (drag) {
+        <app-card [card]="card" cdkDrag (cdkDragStarted)="elevarZIndex($event)" (cdkDragReleased)="resetearCarta($event)"></app-card>
+    } @else {
+        <app-card [card]="card" [allowFancyEvents]="true"></app-card>
+    }
 }
-<img class="legend" src="icons/leyenda_iconos.png" matTooltip="Leyenda de iconos" matTooltipPosition="above" alt="">
+<img class="legend" src="icons/leyenda_iconos.png" matTooltip="Leyenda de iconos" matTooltipPosition="above">
 <app-leyend id="app-leyend"></app-leyend>

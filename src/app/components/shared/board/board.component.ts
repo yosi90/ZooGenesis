@@ -9,11 +9,11 @@ import { CommonModule } from '@angular/common';
     styleUrl: './board.component.sass',
     animations: [
         trigger('expandirTablero', [
-            state('tiny', style({  })),
-            state('small', style({  })),
-            state('medium', style({  })),
+            state('tiny', style({ })),
+            state('small', style({ })),
+            state('medium', style({ })),
             state('large', style({ })),
-            state('full', style({  })),
+            state('full', style({ })),
             transition('* => *', [animate('0.5s ease-in-out')]),
         ]),
     ],
@@ -23,13 +23,11 @@ export class BoardComponent {
     estadoTablero = 'tiny';
 
     expandirTablero() {
-        if (this.espacios < 10) {
+        if (this.espacios < 10)
             this.espacios += 2;
-            this.estadoTablero = this.obtenerEstado();
-        } else {
+        else
             this.espacios = 2;
-            this.estadoTablero = this.obtenerEstado();
-        }
+        this.estadoTablero = this.obtenerEstado();
     }
 
     obtenerEstado(): string {
