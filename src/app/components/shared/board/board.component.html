@@ -1,7 +1,22 @@
 <div class="tablero-container">
     <button (click)="expandirTablero()">Expandir</button>
 
-    <div class="tablero" [@expandirTablero]="estadoTablero">
-        <div class="espacio" *ngFor="let i of [].constructor(espacios)"></div>
+    <div *ngIf="mostrarZonasCancelacion" cdkDropList #cancelIzquierda="cdkDropList"
+        [cdkDropListConnectedTo]="[tableroPanel]" (cdkDropListDropped)="cancelarCarta($event)"
+        [ngClass]="{ 'visible': mostrarZonasCancelacion }" class="zona-cancelacion">
+    </div>
+
+    <div cdkDropList #tableroPanel="cdkDropList"
+        [cdkDropListConnectedTo]="['coleccionPanel', 'cancelIzquierda', 'cancelDerecha']" [cdkDropListData]="tablero"
+        (cdkDropListDropped)="moverCartaTablero($event)" (cdkDropListEntered)="activarZonasCancelacion()"
+        (cdkDropListExited)="desactivarZonasCancelacion()" class="tablero">
+        <div class="espacio" *ngFor="let carta of tablero; let i = index" cdkDropList>
+            <div *ngIf="carta" cdkDrag>{{ carta }}</div>
+        </div>
+    </div>
+
+    <div *ngIf="mostrarZonasCancelacion" cdkDropList #cancelDerecha="cdkDropList"
+        [cdkDropListConnectedTo]="[tableroPanel]" (cdkDropListDropped)="cancelarCarta($event)"
+        [ngClass]="{ 'visible': mostrarZonasCancelacion }" class="zona-cancelacion">
     </div>
 </div>

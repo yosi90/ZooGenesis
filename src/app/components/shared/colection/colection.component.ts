@@ -15,6 +15,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 })
 export class ColectionComponent {
     @Input() drag: boolean = false;
+    @Input() cartas: string[] = [];
     
     @ViewChildren(CardComponent) cardComps!: QueryList<CardComponent>; // Referencias a las cartas
 

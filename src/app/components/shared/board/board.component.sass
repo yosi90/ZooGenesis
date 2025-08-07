@@ -2,13 +2,24 @@
     display: block
     height: 100%
 
+    background: url('../../../../assets/media/img/forest.jpg')
+    background-position: center
+    background-size: 100% auto
+
     .tablero-container
+        position: relative
+
         display: flex
         justify-content: center
         align-items: center
-        flex-direction: column
+        flex-direction: row wrap
 
         height: 100%
+
+        button
+            position: absolute
+            top: 15%
+            left: 48.4%
 
         .tablero
             display: flex
@@ -17,12 +28,13 @@
 
             height: 60%
 
-            background-color: #2b2b2b
+            background-color: rgba(65, 44, 44, 0.5)
             border-radius: 10px
 
             overflow: hidden
             transition: 0.5s ease-in-out
 
+            gap: 0.6px
             padding: 20px
             margin-top: 10px
 
@@ -30,10 +42,31 @@
                 height: 100%
                 aspect-ratio: 3/7
 
-                background: linear-gradient(135deg, #6a11cb, #2575fc)
+                background: linear-gradient(135deg, rgba(101, 101, 102, 0.9), rgba(134, 138, 145, 0.9))
                 border-radius: 8px
-
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, .7) inset, -2px -2px 4px rgba(0, 0, 0, .7) inset
                 transition: 0.3s ease-in-out
 
                 &:hover
                     transform: scale(1.1)
+
+        .zona-cancelacion
+            height: 50%
+            aspect-ratio: 3/7
+
+            background: rgba(255, 0, 0, 0.1)
+            border-radius: 10px
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
+
+            transition: background 0.3s ease-in-out
+            opacity: 0
+            pointer-events: none
+
+            margin: 14px 10px 0 10px
+
+            &:hover
+                background: rgba(255, 0, 0, 0.5)
+
+.ng-star-inserted .zona-cancelacion
+    opacity: 1
+    pointer-events: auto

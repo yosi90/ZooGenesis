@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild, ElementRef, Renderer2, AfterViewInit } from '@angular/core';
+import { Component, Input, ViewChild, ElementRef, Renderer2, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { Card } from '../../../interfaces/card';
 import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';

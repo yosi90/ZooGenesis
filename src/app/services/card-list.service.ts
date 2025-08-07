@@ -12,6 +12,7 @@ export class CardListService {
         {
             name: 'Aprola',
             name_id: 'aprola',
+            img_url: 'cards/aprola.png',
             rarity: 'comun',
             base_quality: 'bronce',
             max_quality: 'bronce',
@@ -36,6 +37,7 @@ export class CardListService {
         {
             name: "Campo de hortalizas",
             name_id: "campo_de_hortalizas",
+            img_url: 'cards/campo_de_hortalizas.jpg',
             rarity: "comun",
             base_quality: "bronce",
             max_quality: "diamante",
@@ -64,6 +66,7 @@ export class CardListService {
         {
             name: "Plor",
             name_id: "plor",
+            img_url: 'cards/plor2.jpg',
             rarity: "comun",
             base_quality: "bronce",
             max_quality: "bronce",
@@ -86,6 +89,7 @@ export class CardListService {
         {
             name: "Quim",
             name_id: "quim",
+            img_url: 'cards/quim.webp',
             rarity: "infrecuente",
             base_quality: "bronce",
             max_quality: "bronce",
@@ -108,6 +112,7 @@ export class CardListService {
         {
             name: "Sello",
             name_id: "sello",
+            img_url: 'cards/sello.webp',
             rarity: "rara",
             base_quality: "bronce",
             max_quality: "bronce",
@@ -132,6 +137,7 @@ export class CardListService {
         {
             name: "Cofre del tesoro",
             name_id: "cofre_del_tesoro",
+            img_url: 'cards/cofre_del_tesoro.jpg',
             rarity: "mitica",
             base_quality: "bronce",
             max_quality: "diamante",
@@ -162,6 +168,7 @@ export class CardListService {
         {
             name: "Faisán asado con setas y queso",
             name_id: "faisan_asado_con_setas_y_queso",
+            img_url: 'cards/faisan_asado_con_setas_y_queso.jpeg',
             rarity: "legendaria",
             base_quality: "diamante",
             max_quality: "diamante",
@@ -189,6 +196,7 @@ export class CardListService {
         {
             name: "Guardia real",
             name_id: "guardia_real",
+            img_url: 'cards/guardia_real.jpg',
             rarity: "mitica",
             base_quality: "diamante",
             max_quality: "diamante",
@@ -215,6 +223,7 @@ export class CardListService {
         {
             name: "Alabarda",
             name_id: "alabarda",
+            img_url: 'cards/alabarda.png',
             rarity: "infrecuente",
             base_quality: "bronce",
             max_quality: "diamante",
@@ -243,6 +252,7 @@ export class CardListService {
         {
             name: 'Nimroot',
             name_id: 'nimroot',
+            img_url: '',
             rarity: 'infrecuente',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -267,6 +277,7 @@ export class CardListService {
         {
             name: 'Campo de Whego',
             name_id: 'campo_de_whego',
+            img_url: 'cards/campo_de_whego.jpg',
             rarity: 'comun',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -291,6 +302,7 @@ export class CardListService {
         {
             name: 'Armarak',
             name_id: 'armarak',
+            img_url: 'cards/armarak.jpg',
             rarity: 'comun',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -315,6 +327,7 @@ export class CardListService {
         {
             name: 'Turoon',
             name_id: 'turoon',
+            img_url: 'cards/turoon.jpg',
             rarity: 'comun',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -339,6 +352,7 @@ export class CardListService {
         {
             name: 'Nÿlmaekrûl',
             name_id: 'nylmaekrul',
+            img_url: 'cards/nylmaekrul.jpg',
             rarity: 'infrecuente',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -363,6 +377,7 @@ export class CardListService {
         {
             name: 'Quipe de las llanuras',
             name_id: 'quipe_de_las_llanuras',
+            img_url: 'cards/quipe_de_las_llanuras.jpg',
             rarity: 'comun',
             base_quality: 'plata',
             max_quality: 'diamante',
@@ -386,6 +401,7 @@ export class CardListService {
         {
             name: 'Lirvatha',
             name_id: 'lirvatha',
+            img_url: 'cards/lirvatha.webp',
             rarity: 'infrecuente',
             base_quality: 'plata',
             max_quality: 'diamante',
@@ -409,6 +425,7 @@ export class CardListService {
         {
             name: 'Savia de árbol Volod',
             name_id: 'savia_de_arbol_volod',
+            img_url: 'cards/savia_de_arbol_volod.jpg',
             rarity: 'mitica',
             base_quality: 'oro',
             max_quality: 'diamante',
@@ -431,6 +448,7 @@ export class CardListService {
         {
             name: 'Quivern cola daga',
             name_id: 'quivern_daga',
+            img_url: 'cards/quivern_daga.webp',
             rarity: 'infrecuente',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -455,6 +473,7 @@ export class CardListService {
         {
             name: 'Quivern cola púas',
             name_id: 'quivern_puas',
+            img_url: '',
             rarity: 'infrecuente',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -479,6 +498,7 @@ export class CardListService {
         {
             name: 'Quivern cola martillo',
             name_id: 'quivern_martillo',
+            img_url: 'cards/quivern_martillo.jpg',
             rarity: 'infrecuente',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -503,6 +523,7 @@ export class CardListService {
         {
             name: "Manada de quiverns",
             name_id: "manada_de_quiverns",
+            img_url: '',
             rarity: "rara",
             base_quality: "diamante",
             max_quality: "diamante",
@@ -527,6 +548,7 @@ export class CardListService {
         {
             name: 'Dragón verde',
             name_id: 'dragon_verde',
+            img_url: 'cards/dragon_verde.jpg',
             rarity: 'rara',
             base_quality: 'plata',
             max_quality: 'diamante',
@@ -553,6 +575,7 @@ export class CardListService {
         {
             name: 'Dragón negro',
             name_id: 'dragon_negro',
+            img_url: 'cards/dragon_negro.webp',
             rarity: 'rara',
             base_quality: 'plata',
             max_quality: 'diamante',
@@ -578,6 +601,7 @@ export class CardListService {
         {
             name: "Aylánido",
             name_id: "aylanido",
+            img_url: '',
             rarity: "rara",
             base_quality: "bronce",
             max_quality: "diamante",
@@ -608,6 +632,7 @@ export class CardListService {
         {
             name: "Aylánido marchito",
             name_id: "aylanido_marchito",
+            img_url: '',
             rarity: "comun",
             base_quality: "bronce",
             max_quality: "bronce",
@@ -628,6 +653,7 @@ export class CardListService {
         {
             name: 'Bosque de aylánidos',
             name_id: 'bosque_de_aylanidos',
+            img_url: 'cards/bosque_de_aylanidos.webp',
             rarity: 'rara',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -655,6 +681,7 @@ export class CardListService {
         {
             name: "Gor’grath",
             name_id: "gorgrath",
+            img_url: 'cards/gorgrath.jpeg',
             rarity: "rara",
             base_quality: "bronce",
             max_quality: "diamante",
@@ -684,6 +711,7 @@ export class CardListService {
         {
             name: "Amuleto Piedrafunda",
             name_id: "amuleto_piedrafunda",
+            img_url: 'cards/amuleto_piedrafunda.jpg',
             rarity: "rara",
             base_quality: "plata",
             max_quality: "diamante",
@@ -711,6 +739,7 @@ export class CardListService {
         {
             name: 'Obsidian',
             name_id: 'obsidian',
+            img_url: 'cards/obsidian.webp',
             rarity: 'rara',
             base_quality: 'bronce',
             max_quality: 'diamante',
@@ -738,6 +767,7 @@ export class CardListService {
         {
             name: "Obsidian joven",
             name_id: "obsidian_joven",
+            img_url: '',
             rarity: "comun",
             base_quality: "bronce",
             max_quality: "bronce",
@@ -760,6 +790,7 @@ export class CardListService {
         {
             name: "Obsidian joven enfurecido",
             name_id: "obsidian_joven_enfurecido",
+            img_url: '',
             rarity: "infrecuente",
             base_quality: "bronce",
             max_quality: "bronce",
@@ -785,6 +816,7 @@ export class CardListService {
         {
             name: "Encantador de aprolas",
             name_id: "encantador_de_aprolas",
+            img_url: '',
             rarity: "legendaria",
             base_quality: "diamante",
             max_quality: "diamante",
@@ -812,6 +844,7 @@ export class CardListService {
         {
             name: "Cuerpo en descomposición",
             name_id: "cuerpo_en_descomposicion",
+            img_url: '',
             rarity: "comun",
             base_quality: "bronce",
             max_quality: "diamante",
@@ -838,6 +871,7 @@ export class CardListService {
         {
             name: "Kandra",
             name_id: "kandra",
+            img_url: '',
             rarity: "rara",
             base_quality: "oro",
             max_quality: "diamante",
@@ -864,6 +898,7 @@ export class CardListService {
         {
             name: "TenSoon",
             name_id: "tensoon",
+            img_url: '',
             rarity: "legendaria",
             base_quality: "diamante",
             max_quality: "diamante",

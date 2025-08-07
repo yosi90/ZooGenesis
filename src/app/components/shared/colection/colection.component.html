@@ -4,13 +4,14 @@
     </ngx-slider>
     <div class="card-small" (click)="setMinHeight()"></div>
 </div>
-
-@for (card of cards; track card.name) {
-    @if (drag) {
-        <app-card [card]="card" cdkDrag (cdkDragStarted)="elevarZIndex($event)" (cdkDragReleased)="resetearCarta($event)"></app-card>
-    } @else {
-        <app-card [card]="card" [allowFancyEvents]="true"></app-card>
+<div class="card-list" cdkDropList [cdkDropListData]="cartas" #coleccionPanel="cdkDropList">
+    @for (card of cards; track card.name) {
+        @if (drag) {
+            <app-card [card]="card" cdkDrag (cdkDragStarted)="elevarZIndex($event)" (cdkDragReleased)="resetearCarta($event)"></app-card>
+        } @else {
+            <app-card [card]="card" [allowFancyEvents]="true"></app-card>
+        }
     }
-}
+</div>
 <img class="legend" src="icons/leyenda_iconos.png" matTooltip="Leyenda de iconos" matTooltipPosition="above">
 <app-leyend id="app-leyend"></app-leyend>

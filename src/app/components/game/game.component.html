@@ -1,11 +1,31 @@
 <div class="contenedor">
-    <div cdkDragResize cdkDrag class="panel superior" #tableroPanel>
-        <app-board></app-board>
+    <div cdkDragResize class="panel superior" #tableroPanel>
+        <div class="tablero-container">
+            <button (click)="expandirTablero()">Expandir</button>
+            <div id="board" class="tablero" cdkDropList [cdkDropListData]="tablero" cdkDropListConnectedTo="cards"
+                (cdkDropListDropped)="drop($event)" [cdkDropListEnterPredicate]="espacePredicate.bind(this)">
+                <div class="espacio" *ngFor="let carta of tablero; let i = index" cdkDropList>
+                    <!-- <div *ngIf="carta" [cdkDragData]="carta" cdkDrag>{{ carta }}</div> -->
+                    <app-card [card]="carta" cdkDrag [cdkDragData]="carta"></app-card>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div cdkDragHandle class="separador"></div>
 
-    <div cdkDragResize cdkDrag class="panel inferior" #coleccionPanel>
-        <app-colection [drag]="true"></app-colection>
+    <div cdkDragResize class="panel inferior" #coleccionPanel>
+        <div class="slider-wrapper">
+            <div class="card-big" (click)="setCardMaxHeight()"></div>
+            <ngx-slider [(value)]="cardSize" [options]="sliderOptions" (valueChange)="actualizarTamanoCartas($event)">
+            </ngx-slider>
+            <div class="card-small" (click)="setCardMinHeight()"></div>
+        </div>
+        <div id="cards" class="card-list" cdkDropList [cdkDropListData]="cards" cdkDropListConnectedTo="board"
+            (cdkDropListDropped)="drop($event)" [cdkDropListSortingDisabled]="true">
+            @for (card of cards; track card.name) {
+                <app-card [card]="card" cdkDrag [cdkDragData]="card"></app-card>
+            }
+        </div>
     </div>
 </div>

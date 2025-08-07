@@ -1,6 +1,7 @@
 export interface Card {
     name: string;
     name_id: string;
+    img_url: string;
     rarity: string;
     base_quality: string;
     max_quality: string;

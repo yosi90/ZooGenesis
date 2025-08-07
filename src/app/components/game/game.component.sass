@@ -4,51 +4,199 @@
     height: 100vh
     position: relative
 
-.panel
-    flex: 1
-    overflow: auto
-    padding: 10px
+    .panel
+        flex: 1
+        overflow: auto
 
-.superior
-    background-color: #1a1a1a
+    .superior
+        display: block
 
-    max-height: 500px
-    min-height: 300px
+        height: 100%
+        max-height: 600px
+        min-height: 300px
 
-.inferior
-    background-color: rgb(53, 53, 53)
+        background: url('../../../assets/media/img/forest.jpg')
+        background-position: center
+        background-size: 100% auto
 
-.separador
-    position: relative
+        .tablero-container
+            position: relative
 
-    display: flex
-    justify-content: center
-    align-items: center
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-direction: row wrap
 
-    height: 8px
+            height: 100%
 
-    background: gray
+            button
+                position: absolute
+                top: 15%
+                left: 48.4%
 
-    cursor: ns-resize
+            .tablero
+                display: flex
+                justify-content: center
+                align-items: center
 
-    &::before
-        content: "⋯"
+                height: 60%
 
-        position: absolute
-        top: 50%
+                background-color: rgba(65, 44, 44, 0.5)
+                border-radius: 10px
+
+                overflow: hidden
+                transition: 0.5s ease-in-out
+
+                gap: 0.6px
+                padding: 20px
+                margin-top: 10px
+
+                .espacio
+                    height: 100%
+                    aspect-ratio: 3/7
+
+                    background: linear-gradient(135deg, rgba(101, 101, 102, 0.9), rgba(134, 138, 145, 0.9))
+                    border-radius: 8px
+                    box-shadow: 2px 2px 4px rgba(0, 0, 0, .7) inset, -2px -2px 4px rgba(0, 0, 0, .7) inset
+                    transition: 0.3s ease-in-out
+
+                    &:hover
+                        transform: scale(1.1)
+
+            .zona-cancelacion
+                height: 50%
+                aspect-ratio: 3/7
+
+                background: rgba(255, 0, 0, 0.1)
+                border-radius: 10px
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4), -2px -2px 4px rgba(0, 0, 0, 0.4)
+
+                transition: background 0.3s ease-in-out
+                opacity: 0
+                pointer-events: none
+
+                margin: 14px 10px 0 10px
+
+                &:hover
+                    background: rgba(255, 0, 0, 0.5)
+
+    .separador
+        position: relative
 
         display: flex
-        align-items: center
         justify-content: center
+        align-items: center
 
-        width: 35px
-        height: 20px
-        
-        color: white
-        font-size: 17px
+        height: 8px
 
         background: gray
-        border-radius: 6px
 
-        transform: translateY(-50%)
-        z-index: 12
+        cursor: ns-resize
+        z-index: 20
+
+        &::before
+            content: "⋯"
+
+            position: absolute
+            top: 50%
+
+            display: flex
+            align-items: center
+            justify-content: center
+
+            width: 35px
+            height: 20px
+            
+            color: white
+            font-size: 17px
+
+            background: gray
+            border-radius: 6px
+
+            transform: translateY(-50%)
+            z-index: 12
+
+    .inferior
+        flex: 1
+        
+        background-color: rgb(53, 53, 53)
+
+        padding: 50px 50px 50px 0
+        margin: 0 0 0 100px
+
+        .card-list
+            position: relative
+
+            display: flex
+            flex-flow: row wrap
+
+            justify-content: space-between
+            align-items: center
+            align-content: center
+
+        .slider-wrapper
+            position: fixed
+            bottom: 20px
+            left: 20px
+
+            display: flex
+            justify-content: center
+            align-items: center
+            flex-flow: column wrap
+
+            height: 270px
+
+            background-color: rgba(73, 73, 73, 0.4)
+            border-radius: 5px
+
+            gap: 10px
+
+            div[class^='card-']
+                background-color: rgba(73, 73, 73, 0.8)
+                border-radius: 1px
+                box-shadow: 1px 1px 2px rgba(0, 0, 0, .4), -1px -1px 2px rgba(0, 0, 0, .4)
+
+                aspect-ratio: 3/6
+                cursor: pointer
+
+            .card-big
+                height: 30px
+
+            .card-small
+                height: 15px
+
+            ngx-slider
+
+                max-height: 180px
+
+                ::ng-deep 
+                    .ngx-slider-pointer
+                        width: 24px
+                        height: 24px
+
+                        left: -10px !important
+
+                        &::after
+                            top: 8px
+                            left: 8px
+
+                    .ngx-slider-model-value
+                        display: none
+
+.ng-star-inserted .zona-cancelacion
+    opacity: 1
+    pointer-events: auto
+
+.cdk-drag-preview
+    box-sizing: border-box
+    border-radius: 4px
+    box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2), 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12)
+
+.cdk-drag-placeholder
+    opacity: 0
+
+.cdk-drag-animating
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1)
+
+app-card.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder)
+    transition: transform 250ms cubic-bezier(0, 0, 0.2, 1)
