@@ -42,9 +42,7 @@ export class ColectionComponent {
 
     resetearCarta(event: any) {
         const carta = event.source.element.nativeElement;
-        this.renderer.setStyle(carta, 'transform', 'translate3d(0, 0, 0)');
         this.renderer.setStyle(carta, 'z-index', '1');
-        event.source.reset();
     }
 
     getBorderSize(size: number): number {
@@ -108,3 +106,4 @@ export class ColectionComponent {
         this.actualizarTamano(180);
     }
 }
+

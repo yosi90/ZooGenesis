@@ -7,7 +7,7 @@
 
 @for (card of cards; track card.name) {
     @if (drag) {
-        <app-card [card]="card" cdkDrag (cdkDragStarted)="elevarZIndex($event)" (cdkDragReleased)="resetearCarta($event)"></app-card>
+        <app-card [card]="card" cdkDrag (cdkDragStarted)="elevarZIndex($event)" (cdkDragEnded)="resetearCarta($event)"></app-card>
     } @else {
         <app-card [card]="card" [allowFancyEvents]="true"></app-card>
     }

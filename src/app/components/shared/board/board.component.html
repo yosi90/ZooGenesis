@@ -1,7 +1,7 @@
 <div class="tablero-container">
     <button (click)="expandirTablero()">Expandir</button>
 
-    <div class="tablero" [@expandirTablero]="estadoTablero">
+    <div class="tablero" [@expandirTablero]="estadoTablero" cdkDropList (cdkDropListDropped)="onDrop($event)">
         <div class="espacio" *ngFor="let i of [].constructor(espacios)"></div>
     </div>
 </div>

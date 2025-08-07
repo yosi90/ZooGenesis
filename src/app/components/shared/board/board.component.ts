@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
+import { DragDropModule, CdkDragDrop } from '@angular/cdk/drag-drop';
 
 @Component({
     selector: 'app-board',
-    imports: [CommonModule],
+    imports: [CommonModule, DragDropModule],
     templateUrl: './board.component.html',
     styleUrl: './board.component.sass',
     animations: [
@@ -39,5 +40,9 @@ export class BoardComponent {
             case 10: return 'full';
             default: return 'tiny';
         }
+    }
+
+    onDrop(event: CdkDragDrop<unknown>) {
+        // TODO: handle placing the card in a board slot
     }
 }
